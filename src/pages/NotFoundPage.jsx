@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Bus } from "lucide-react";
 import SeoHead from "../Component/SeoHead/SeoHead";
 import { PAGE_SEO } from "../config/seoConfig";
 import "./SubPages.css";
@@ -18,21 +18,30 @@ export default function NotFoundPage() {
 
       <main className="smb-subpage-shell smb-notfound">
         <div className="smb-subpage-container smb-notfound-inner">
-          <span className="smb-subpage-eyebrow">404 ERROR</span>
-          <h1 className="smb-subpage-h1">This Page Could Not Be Found</h1>
+          <div className="smb-notfound-route" aria-hidden="true">
+            <span className="smb-notfound-code">404</span>
+            <span className="smb-notfound-track">
+              <span className="smb-notfound-bus-badge">
+                <Bus className="smb-notfound-bus-icon" />
+              </span>
+              <span className="smb-notfound-road" />
+              <span className="smb-notfound-stop" />
+            </span>
+          </div>
+
+          <span className="smb-subpage-eyebrow">OOPS! WRONG TURN</span>
+          <h1 className="smb-subpage-h1">404 &ndash; Page Not Found</h1>
           <p className="smb-subpage-lead">
-            The route or article you were looking for may have moved. Explore our bus photography
-            services, portfolio showcase, or production guides below.
+            Looks like this journey has taken an unexpected turn. The page
+            you&apos;re looking for doesn&apos;t exist or may have been moved.
           </p>
+
           <div className="smb-notfound-actions">
             <Link to="/" className="smb-subpage-btn-primary">
               <ArrowLeft size={16} aria-hidden="true" /> Back to Home
             </Link>
             <Link to="/services" className="smb-subpage-btn-outline">
-              View Services <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-            <Link to="/blog" className="smb-subpage-btn-outline">
-              Read Blog
+              Explore Our Services <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </div>
