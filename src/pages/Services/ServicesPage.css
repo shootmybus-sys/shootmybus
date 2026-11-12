@@ -28,11 +28,10 @@
 
 .smb-srvpage-h1 {
   margin: 0 0 18px;
-  font-family: var(--font-display);
-  font-size: clamp(2.15rem, 4.2vw, 3.35rem);
-  font-weight: 600;
+  font-size: clamp(2.05rem, 4.1vw, 3.25rem);
+  font-weight: 800;
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: #102b60;
 }
 
@@ -124,10 +123,9 @@
 
 .smb-srv-title {
   margin: 0 0 14px;
-  font-family: var(--font-display);
-  font-size: clamp(1.65rem, 2.6vw, 2.25rem);
-  font-weight: 600;
-  line-height: 1.18;
+  font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: -0.015em;
   color: #102b60;
 }
@@ -218,9 +216,8 @@
 
 .smb-srvpage-footer-cta h2 {
   margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
-  font-weight: 600;
+  font-size: clamp(1.5rem, 2.5vw, 2.05rem);
+  font-weight: 800;
   letter-spacing: -0.015em;
   color: #ffffff;
 }

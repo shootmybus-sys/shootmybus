@@ -1,6 +1,5 @@
 // Centralized editable configuration for Shootmybus contact details, social links,
-// backend form submission endpoint, and placeholder testimonials.
-// Replace empty values with verified production details when ready.
+// backend form submission endpoint, trusted brand marquee, and editable draft testimonials.
 
 export const SITE_CONTACT = {
   formEndpoint: "", // Optional backend/Formspree URL for live form submissions
@@ -26,34 +25,60 @@ export const SITE_CONTACT = {
   },
 };
 
-// Placeholder testimonials — replace with actual approved client feedback and optional verified ratings (1–5).
-export const TESTIMONIALS_DATA = [
-  {
-    id: "placeholder-1",
-    quote:
-      "Placeholder client testimonial — replace this text with verified feedback from a Shootmybus fleet partner once approved for publication.",
-    authorName: "Client Name (Placeholder)",
-    company: "Bus Operator / Travel Brand",
-    profileImage: "",
-    rating: null,
-  },
-  {
-    id: "placeholder-2",
-    quote:
-      "Placeholder client testimonial — add a real client quote describing their experience with Shootmybus reels, drone shoots, or photography.",
-    authorName: "Client Name (Placeholder)",
-    company: "Luxury Coach Fleet",
-    profileImage: "",
-    rating: null,
-  },
-  {
-    id: "placeholder-3",
-    quote:
-      "Placeholder client testimonial — update author name, company identity, optional avatar, and verified rating in src/config/contactConfig.js.",
-    authorName: "Client Name (Placeholder)",
-    company: "Transport Partner",
-    profileImage: "",
-    rating: null,
-  },
+export const TRUST_HIGHLIGHT = {
+  stat: "400+",
+  label: "BUSES CAPTURED",
+};
+
+// Clean text-based operator brand list (replace with verified image logos in public/Logo/ if provided later).
+export const TRUSTED_BRANDS_ROW_ONE = [
+  "Ram Dalal",
+  "Tegra Express",
+  "VRL Travels",
+  "Koolkarsh",
+  "Baba Holidays",
+  "Zingbus",
 ];
 
+export const TRUSTED_BRANDS_ROW_TWO = [
+  "Synatyautomotive",
+  "Jakhar Travels",
+  "Shrinath Solitaire",
+  "Falcon Travels",
+  "Rajan Travels",
+  "Palbus Travels",
+];
+
+// Editable testimonial drafts — clearly marked as drafts until approved feedback is provided by each client.
+export const TESTIMONIALS_DATA = [
+  {
+    id: "draft-ram-dalal",
+    brandName: "Ram Dalal",
+    category: "Fleet Operator",
+    isDraft: true,
+    statusLabel: "Draft Testimonial",
+    focusTag: "Professional Bus Photography & Visual Presentation",
+    draftSummary:
+      "Editable draft showcase highlighting professional bus photography, crisp exterior visual presentation, and cinematic coach shots. Replace with verified feedback upon client approval.",
+  },
+  {
+    id: "draft-zingbus",
+    brandName: "Zingbus",
+    category: "Intercity Travel Brand",
+    isDraft: true,
+    statusLabel: "Draft Testimonial",
+    focusTag: "Creative Bus Visuals & Cinematic Storytelling",
+    draftSummary:
+      "Editable draft showcase focusing on creative bus visuals, cinematic storytelling, and end-to-end commercial film production. Replace with verified feedback upon client approval.",
+  },
+  {
+    id: "draft-vrl-travels",
+    brandName: "VRL Travels",
+    category: "Transport Partner",
+    isDraft: true,
+    statusLabel: "Draft Testimonial",
+    focusTag: "Photography Quality & Attention to Detail",
+    draftSummary:
+      "Editable draft showcase centered on commercial bus photography quality, attention to fleet detail, and streamlined production experience. Replace with verified feedback upon client approval.",
+  },
+];

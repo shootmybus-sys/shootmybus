@@ -28,11 +28,10 @@
 
 .smb-article-title {
   margin: 0 0 18px;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.9vw, 3.05rem);
-  font-weight: 600;
-  line-height: 1.14;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.9rem, 3.8vw, 2.95rem);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
   color: #102b60;
 }
 
@@ -72,20 +71,18 @@
 
 .smb-article-section h2 {
   margin: 0 0 14px;
-  font-family: var(--font-display);
-  font-size: clamp(1.45rem, 2.3vw, 1.85rem);
-  font-weight: 600;
-  line-height: 1.24;
+  font-size: clamp(1.38rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.28;
   letter-spacing: -0.015em;
   color: #102b60;
 }
 
 .smb-article-section h3 {
   margin: 22px 0 8px;
-  font-family: var(--font-display);
-  font-size: 1.24rem;
+  font-size: 1.16rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.32;
   color: #15397a;
 }
 
@@ -127,9 +124,8 @@
 
 .smb-article-faq h2 {
   margin: 0 0 22px;
-  font-family: var(--font-display);
-  font-size: 1.65rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: #102b60;
 }
@@ -148,10 +144,9 @@
 
 .smb-faq-item h3 {
   margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: 1.12rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  line-height: 1.32;
+  line-height: 1.35;
   color: #102b60;
 }
 
@@ -178,9 +173,8 @@
 
 .smb-article-cta h2 {
   margin: 0 0 6px;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.45rem;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: #ffffff;
 }
@@ -232,9 +226,8 @@
 
 .smb-related-heading h2 {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: 1.65rem;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: #102b60;
 }

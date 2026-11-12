@@ -1,135 +1,106 @@
-import React, { useState } from "react";
-import { ChevronLeft, ChevronRight, Quote, Star, User } from "lucide-react";
-import { TESTIMONIALS_DATA } from "../../config/contactConfig";
+import React from "react";
+import { Bus, Camera, Quote } from "lucide-react";
+import {
+  TESTIMONIALS_DATA,
+  TRUSTED_BRANDS_ROW_ONE,
+  TRUSTED_BRANDS_ROW_TWO,
+  TRUST_HIGHLIGHT,
+} from "../../config/contactConfig";
 import { useInView } from "../../hooks/useInView";
 import "./Testimonials.css";
 
+function BrandMarqueeRow({ brands, direction }) {
+  return (
+    <div className="smb-brand-marquee-viewport">
+      <div className={`smb-brand-marquee-track smb-brand-marquee-track--${direction}`}>
+        {[0, 1].map((copyIndex) => (
+          <div
+            key={copyIndex}
+            className="smb-brand-marquee-group"
+            aria-hidden={copyIndex === 1}
+          >
+            {brands.map((brand) => (
+              <div key={`${copyIndex}-${brand}`} className="smb-brand-pill">
+                <span className="smb-brand-dot" aria-hidden="true" />
+                <span className="smb-brand-name">{brand}</span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Testimonials() {
   const [sectionRef, isInView] = useInView(0.14);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const totalSlides = TESTIMONIALS_DATA.length;
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % totalSlides);
-  };
 
   return (
     <div ref={sectionRef} className="smb-testimonials">
       <div className="smb-testimonials-container">
-        <div className={`smb-testi-header${isInView ? " is-inview" : ""}`}>
-          <p className="smb-testi-eyebrow">CLIENT STORIES</p>
-          <h2 className="smb-testi-heading">
-            Words That{" "}
-            <span className="smb-testi-highlight">Drive Us Forward.</span>
-          </h2>
-          <p className="smb-testi-subtitle">
-            Experiences and feedback from the people who trust our work.
-          </p>
-        </div>
-
-        <div className={`smb-testi-slider${isInView ? " is-inview" : ""}`}>
-          <div className="smb-testi-viewport">
-            <div
-              className="smb-testi-track"
-              style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)` }}
-            >
-              {TESTIMONIALS_DATA.map((item) => {
-                const hasValidRating =
-                  typeof item.rating === "number" && item.rating > 0;
-                const starCount = hasValidRating
-                  ? Math.min(5, Math.round(item.rating))
-                  : 0;
-
-                return (
-                  <div key={item.id} className="smb-testi-slide">
-                    <article className="smb-testi-card">
-                      <span
-                        className="smb-testi-quote-icon-box"
-                        aria-hidden="true"
-                      >
-                        <Quote className="smb-testi-quote-icon" />
-                      </span>
-
-                      {hasValidRating && (
-                        <div
-                          className="smb-testi-stars"
-                          aria-label={`Rated ${starCount} out of 5`}
-                        >
-                          {Array.from({ length: starCount }).map((_, idx) => (
-                            <Star key={idx} className="smb-testi-star" />
-                          ))}
-                        </div>
-                      )}
-
-                      <p className="smb-testi-quote">&ldquo;{item.quote}&rdquo;</p>
-
-                      <div className="smb-testi-author">
-                        <span className="smb-testi-avatar" aria-hidden="true">
-                          {item.profileImage ? (
-                            <img
-                              src={item.profileImage}
-                              alt={item.authorName}
-                              className="smb-testi-avatar-img"
-                            />
-                          ) : (
-                            <User className="smb-testi-avatar-icon" />
-                          )}
-                        </span>
-
-                        <div className="smb-testi-author-info">
-                          <p className="smb-testi-name">{item.authorName}</p>
-                          <p className="smb-testi-company">{item.company}</p>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                );
-              })}
-            </div>
+        <div className={`smb-testi-top-row${isInView ? " is-inview" : ""}`}>
+          <div className="smb-testi-header">
+            <p className="smb-testi-eyebrow">TRUSTED BY BUS OPERATORS</p>
+            <h2 className="smb-testi-heading">
+              The Names Behind{" "}
+              <span className="smb-testi-highlight">Our Journey.</span>
+            </h2>
+            <p className="smb-testi-subtitle">
+              We&apos;ve had the opportunity to capture buses and create cinematic
+              visuals for some recognized names in the Indian transport industry.
+            </p>
           </div>
 
-          {totalSlides > 1 && (
-            <div className="smb-testi-controls">
-              <button
-                type="button"
-                className="smb-testi-arrow"
-                aria-label="Previous testimonial"
-                onClick={handlePrev}
-              >
-                <ChevronLeft className="smb-testi-arrow-icon" />
-              </button>
+          <div className="smb-trust-highlight-card" aria-label="400+ Buses Captured">
+            <span className="smb-trust-icon-box" aria-hidden="true">
+              <Camera className="smb-trust-icon" />
+            </span>
+            <div className="smb-trust-text">
+              <span className="smb-trust-stat">{TRUST_HIGHLIGHT.stat}</span>
+              <span className="smb-trust-label">{TRUST_HIGHLIGHT.label}</span>
+            </div>
+          </div>
+        </div>
 
-              <div className="smb-testi-dots" role="tablist" aria-label="Testimonials">
-                {TESTIMONIALS_DATA.map((item, index) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={index === activeIndex}
-                    aria-label={`Show testimonial ${index + 1}`}
-                    className={`smb-testi-dot${
-                      index === activeIndex ? " is-active" : ""
-                    }`}
-                    onClick={() => setActiveIndex(index)}
-                  />
-                ))}
+        <div
+          className={`smb-brand-marquee-section${isInView ? " is-inview" : ""}`}
+          aria-label="Featured Indian bus operators and transport brands"
+        >
+          <BrandMarqueeRow brands={TRUSTED_BRANDS_ROW_ONE} direction="left" />
+          <BrandMarqueeRow brands={TRUSTED_BRANDS_ROW_TWO} direction="right" />
+        </div>
+
+        <div
+          className={`smb-testi-cards-grid${isInView ? " is-inview" : ""}`}
+          aria-label="Featured client draft testimonials"
+        >
+          {TESTIMONIALS_DATA.map((item) => (
+            <article key={item.id} className="smb-testi-card">
+              <div className="smb-testi-card-top">
+                <span className="smb-testi-quote-icon-box" aria-hidden="true">
+                  <Quote className="smb-testi-quote-icon" />
+                </span>
+                {item.isDraft && (
+                  <span className="smb-testi-draft-badge">
+                    {item.statusLabel}
+                  </span>
+                )}
               </div>
 
-              <button
-                type="button"
-                className="smb-testi-arrow"
-                aria-label="Next testimonial"
-                onClick={handleNext}
-              >
-                <ChevronRight className="smb-testi-arrow-icon" />
-              </button>
-            </div>
-          )}
+              <p className="smb-testi-focus">{item.focusTag}</p>
+              <p className="smb-testi-quote">{item.draftSummary}</p>
+
+              <div className="smb-testi-author">
+                <span className="smb-testi-avatar" aria-hidden="true">
+                  <Bus className="smb-testi-avatar-icon" />
+                </span>
+                <div className="smb-testi-author-info">
+                  <h3 className="smb-testi-name">{item.brandName}</h3>
+                  <p className="smb-testi-company">{item.category}</p>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </div>
@@ -137,4 +108,3 @@ function Testimonials() {
 }
 
 export default Testimonials;
-

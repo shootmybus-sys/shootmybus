@@ -32,11 +32,10 @@
 
 .smb-subpage-h1 {
   margin: 0 0 16px;
-  font-family: var(--font-display);
-  font-size: clamp(2.1rem, 4.1vw, 3.25rem);
-  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3.15rem);
+  font-weight: 800;
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: #102b60;
   max-width: 820px;
 }
@@ -69,9 +68,8 @@
 
 .smb-subpage-cta-card h2 {
   margin: 0 0 6px;
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  font-weight: 600;
+  font-size: 1.45rem;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: #102b60;
 }

@@ -2,7 +2,8 @@
   width: 100%;
   box-sizing: border-box;
   background-color: var(--bg-secondary);
-  padding: clamp(28px, 3vw, 38px) clamp(20px, 4vw, 48px) clamp(32px, 3.5vw, 44px);
+  padding: clamp(44px, 5vw, 68px) clamp(20px, 4vw, 48px)
+    clamp(52px, 5.5vw, 76px);
   overflow-x: clip;
 }
 
@@ -13,10 +14,13 @@
   box-sizing: border-box;
 }
 
-.smb-testi-header {
-  text-align: center;
-  max-width: 1340px;
-  margin: 0 auto clamp(32px, 4vw, 48px);
+.smb-testi-top-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 36px;
+  margin-bottom: clamp(32px, 3.8vw, 48px);
   opacity: 0;
   transform: translateY(22px);
   transition:
@@ -24,14 +28,19 @@
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.smb-testi-header.is-inview {
+.smb-testi-top-row.is-inview {
   opacity: 1;
   transform: translateY(0);
 }
 
+.smb-testi-header {
+  text-align: left;
+  max-width: 720px;
+}
+
 .smb-testi-eyebrow {
   margin: 0 0 12px;
-  color: #28a99a;
+  color: var(--brand-teal);
   font-size: clamp(0.75rem, 0.95vw, 0.875rem);
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -40,7 +49,7 @@
 
 .smb-testi-heading {
   margin: 0;
-  color: #102b60;
+  color: var(--brand-navy);
   font-size: clamp(1.95rem, 3.7vw, 3.1rem);
   font-weight: 700;
   line-height: 1.15;
@@ -49,138 +58,308 @@
 }
 
 .smb-testi-highlight {
-  color: #28a99a;
+  color: var(--brand-teal);
 }
 
 .smb-testi-subtitle {
-  text-align: center;
   margin: 16px 0 0;
-  max-width: 1340px;
-  color: rgba(16, 43, 96, 0.74);
-  font-size: clamp(0.96875rem, 1.15vw, 1.09375rem);
+  max-width: 56ch;
+  color: rgba(16, 43, 96, 0.76);
+  font-size: clamp(0.96875rem, 1.15vw, 1.0625rem);
   line-height: 1.65;
 }
 
-/* Slider */
-.smb-testi-slider {
-  position: relative;
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s,
-    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+/* Trust Counter Statement */
+.smb-trust-highlight-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  border-radius: 20px;
+  background-color: var(--bg-white);
+  border: 1px solid rgba(16, 43, 96, 0.08);
+  box-shadow: 0 12px 28px rgba(16, 43, 96, 0.06);
+  flex-shrink: 0;
 }
 
-.smb-testi-slider.is-inview {
+.smb-trust-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(40, 169, 154, 0.12);
+  color: var(--brand-teal);
+}
+
+.smb-trust-icon {
+  width: 21px;
+  height: 21px;
+}
+
+.smb-trust-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.smb-trust-stat {
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--brand-navy);
+}
+
+.smb-trust-label {
+  margin-top: 3px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--brand-teal);
+}
+
+/* Brand Logo Marquee */
+.smb-brand-marquee-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: clamp(36px, 4.2vw, 52px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+.smb-brand-marquee-section.is-inview {
   opacity: 1;
   transform: translateY(0);
 }
 
-.smb-testi-viewport {
+.smb-brand-marquee-viewport {
+  position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 26px;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
 }
 
-.smb-testi-track {
+.smb-brand-marquee-track {
   display: flex;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  width: max-content;
   will-change: transform;
 }
 
-.smb-testi-slide {
-  flex: 0 0 100%;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 6px;
+.smb-brand-marquee-track--left {
+  animation: smbBrandScrollLeft 34s linear infinite;
 }
 
-.smb-testi-card {
-  padding: clamp(28px, 4vw, 48px) clamp(24px, 4.5vw, 56px);
-  border-radius: 24px;
-  background-color: #ffffff;
-  border: 1px solid rgba(16, 43, 96, 0.08);
-  box-shadow:
-    0 18px 44px rgba(16, 43, 96, 0.06),
-    0 2px 10px rgba(40, 169, 154, 0.04);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.smb-brand-marquee-track--right {
+  animation: smbBrandScrollRight 38s linear infinite;
 }
 
-.smb-testi-quote-icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 22px;
-  color: #28a99a;
-  background-color: rgba(40, 169, 154, 0.1);
-  border: 1px solid rgba(40, 169, 154, 0.24);
+.smb-brand-marquee-viewport:hover .smb-brand-marquee-track {
+  animation-play-state: paused;
 }
 
-.smb-testi-quote-icon {
-  width: 22px;
-  height: 22px;
-}
-
-.smb-testi-stars {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 16px;
-  color: #28a99a;
-}
-
-.smb-testi-star {
-  width: 18px;
-  height: 18px;
-  fill: #28a99a;
-}
-
-.smb-testi-quote {
-  margin: 0;
-  max-width: 58ch;
-  color: #102b60;
-  font-size: clamp(1.0625rem, 1.55vw, 1.3125rem);
-  font-weight: 500;
-  line-height: 1.65;
-}
-
-.smb-testi-author {
-  margin-top: 28px;
+.smb-brand-marquee-group {
   display: flex;
   align-items: center;
   gap: 14px;
+  padding-right: 14px;
 }
 
-.smb-testi-avatar {
-  width: 48px;
-  height: 48px;
+.smb-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 24px;
   border-radius: 9999px;
-  overflow: hidden;
+  background-color: var(--bg-white);
+  border: 1px solid rgba(16, 43, 96, 0.09);
+  box-shadow: 0 6px 18px rgba(16, 43, 96, 0.04);
+  white-space: nowrap;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.smb-brand-pill:hover {
+  border-color: rgba(40, 169, 154, 0.45);
+  transform: translateY(-2px);
+}
+
+.smb-brand-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background-color: var(--brand-teal);
   flex-shrink: 0;
+}
+
+.smb-brand-name {
+  font-size: 0.96875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--brand-navy);
+}
+
+@keyframes smbBrandScrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes smbBrandScrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* 3 Draft Testimonial Cards */
+.smb-testi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.16s,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.16s;
+}
+
+.smb-testi-cards-grid.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.smb-testi-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 28px 26px;
+  border-radius: 22px;
+  background-color: var(--bg-white);
+  border: 1px solid rgba(16, 43, 96, 0.08);
+  box-shadow:
+    0 14px 36px rgba(16, 43, 96, 0.06),
+    0 2px 10px rgba(40, 169, 154, 0.04);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.smb-testi-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(40, 169, 154, 0.36);
+  box-shadow:
+    0 20px 44px rgba(16, 43, 96, 0.09),
+    0 4px 14px rgba(40, 169, 154, 0.06);
+}
+
+.smb-testi-card-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.smb-testi-quote-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(16, 43, 96, 0.06);
-  border: 1.5px solid rgba(40, 169, 154, 0.3);
-  color: #102b60;
+  color: var(--brand-teal);
+  background-color: rgba(40, 169, 154, 0.1);
+  border: 1px solid rgba(40, 169, 154, 0.22);
 }
 
-.smb-testi-avatar-img {
+.smb-testi-quote-icon {
+  width: 19px;
+  height: 19px;
+}
+
+.smb-testi-draft-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background-color: var(--bg-secondary);
+  border: 1px solid rgba(40, 169, 154, 0.28);
+  color: #1b7f73;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.smb-testi-focus {
+  margin: 0 0 10px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--brand-navy);
+}
+
+.smb-testi-quote {
+  margin: 0 0 24px;
+  font-size: 0.94rem;
+  font-weight: 400;
+  line-height: 1.68;
+  color: rgba(16, 43, 96, 0.74);
+  flex: 1;
+}
+
+.smb-testi-author {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  padding-top: 18px;
+  border-top: 1px solid rgba(16, 43, 96, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.smb-testi-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  background-color: rgba(40, 169, 154, 0.12);
+  color: var(--brand-teal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .smb-testi-avatar-icon {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
 }
 
 .smb-testi-author-info {
@@ -189,131 +368,59 @@
 
 .smb-testi-name {
   margin: 0;
-  color: #102b60;
-  font-size: 1rem;
+  font-size: 1.03125rem;
   font-weight: 700;
+  color: var(--brand-navy);
 }
 
 .smb-testi-company {
   margin: 2px 0 0;
-  color: #28a99a;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-}
-
-/* Controls */
-.smb-testi-controls {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-}
-
-.smb-testi-arrow {
-  width: 44px;
-  height: 44px;
-  border-radius: 9999px;
-  border: 1px solid rgba(16, 43, 96, 0.14);
-  background-color: #ffffff;
-  color: #102b60;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.smb-testi-arrow:hover {
-  background-color: #28a99a;
-  border-color: #28a99a;
-  color: #ffffff;
-  transform: scale(1.06);
-}
-
-.smb-testi-arrow:focus-visible,
-.smb-testi-dot:focus-visible {
-  outline: 2px solid #28a99a;
-  outline-offset: 2px;
-}
-
-.smb-testi-arrow-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.smb-testi-dots {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.smb-testi-dot {
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  border: none;
-  border-radius: 9999px;
-  background-color: rgba(16, 43, 96, 0.18);
-  cursor: pointer;
-  transition:
-    width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.25s ease;
-}
-
-.smb-testi-dot.is-active {
-  width: 28px;
-  background-color: #28a99a;
+  color: rgba(16, 43, 96, 0.62);
 }
 
 /* Tablet */
 @media (max-width: 1024px) {
-  .smb-testimonials {
-    padding: 28px 20px 34px;
+  .smb-testi-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Mobile */
+/* Mobile: swipeable cards */
 @media (max-width: 767px) {
   .smb-testimonials {
-    padding: 20px 16px 24px;
+    padding: 36px 16px 48px;
   }
 
-  .smb-testi-header {
-    margin-bottom: 26px;
+  .smb-testi-top-row {
+    align-items: flex-start;
   }
 
-  .smb-testi-heading {
-    font-size: clamp(1.65rem, 6.4vw, 2.2rem);
+  .smb-testi-cards-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .smb-testi-cards-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .smb-testi-card {
-    padding: 26px 20px;
-    border-radius: 20px;
-  }
-
-  .smb-testi-quote {
-    font-size: 1rem;
+    flex: 0 0 86%;
+    scroll-snap-align: start;
+    padding: 24px 20px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
-  .smb-testi-header,
-  .smb-testi-slider,
-  .smb-testi-track,
-  .smb-testi-arrow,
-  .smb-testi-dot {
-    transition: none;
-  }
-
-  .smb-testi-header,
-  .smb-testi-slider {
-    opacity: 1;
-    transform: none;
+  .smb-brand-marquee-track--left,
+  .smb-brand-marquee-track--right {
+    animation: none;
   }
 }
