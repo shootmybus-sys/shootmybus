@@ -1,3 +1,5 @@
+import { SITE_CONTACT } from "./contactConfig";
+
 export const SITE_SEO = {
   brandName: "Shootmybus",
   tagline: "Bus Photography & Cinematic Bus Videography in India",
@@ -80,6 +82,9 @@ export function buildOrganizationSchema() {
     name: SITE_SEO.brandName,
     url: SITE_SEO.siteUrl,
     logo: toAbsoluteUrl(SITE_SEO.logoUrl),
+    email: SITE_CONTACT.email.display,
+    telephone: "+91-86902-60722",
+    sameAs: [SITE_CONTACT.instagram.href, SITE_CONTACT.youtube.href],
     description:
       "Dedicated automotive visual studio specializing in commercial bus photography, cinematic coach reels, drone shoots, and running shots across India.",
     areaServed: {

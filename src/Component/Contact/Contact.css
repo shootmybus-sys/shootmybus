@@ -289,6 +289,19 @@ a.smb-contact-channel:hover .smb-contact-channel-icon-box {
   border: 1px solid rgba(40, 169, 154, 0.32);
 }
 
+.smb-contact-wa-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #102b60;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.smb-contact-wa-link:hover {
+  color: #28a99a;
+}
+
 .smb-contact-status--success {
   color: #102b60;
   background-color: rgba(120, 201, 155, 0.24);

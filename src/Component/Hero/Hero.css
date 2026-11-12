@@ -79,15 +79,51 @@
 }
 
 .smb-hero-eyebrow {
+  position: relative;
   margin: 0 0 20px;
-  color: #78c99b;
+  color: #ffffff;
   font-size: clamp(0.75rem, 1vw, 0.875rem);
   font-weight: 600;
   letter-spacing: 0.2em;
   line-height: 1.5;
   text-transform: uppercase;
   text-shadow: 0 2px 14px rgba(8, 20, 48, 0.55);
-  animation: smbHeroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.smb-hero-eyebrow-ghost {
+  display: block;
+  visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+.smb-hero-eyebrow-live {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.smb-typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 0.28em;
+  vertical-align: -0.14em;
+  background-color: #ffffff;
+  animation: smbCursorBlink 0.78s steps(2, start) infinite;
+}
+
+@keyframes smbCursorBlink {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .smb-hero-heading {
@@ -313,7 +349,8 @@
   .smb-hero-eyebrow,
   .smb-hero-heading,
   .smb-hero-tagline,
-  .smb-hero-actions {
+  .smb-hero-actions,
+  .smb-typing-cursor {
     animation: none;
   }
 

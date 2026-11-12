@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import { SITE_CONTACT } from "../../config/contactConfig";
 import { InstagramIcon, YoutubeIcon } from "../../utils/socialIcons";
 import "./Footer.css";
@@ -10,13 +10,34 @@ const CURRENT_YEAR = new Date().getFullYear();
 const QUICK_LINKS = [
   { id: "home", label: "Home", to: "/" },
   { id: "service", label: "Services", to: "/services" },
-  { id: "portfolio", label: "Portfolio", to: "/portfolio" },
   { id: "about", label: "About", to: "/about" },
+  { id: "portfolio", label: "Portfolio", to: "/portfolio" },
   { id: "blog", label: "Blog", to: "/blog" },
   { id: "contact", label: "Contact", to: "/contact" },
 ];
 
 function Footer() {
+  const contactItems = [
+    {
+      id: "phone",
+      label: `Phone: ${SITE_CONTACT.phone.display}`,
+      icon: Phone,
+      href: SITE_CONTACT.phone.href,
+    },
+    {
+      id: "email",
+      label: SITE_CONTACT.email.display,
+      icon: Mail,
+      href: SITE_CONTACT.email.href,
+    },
+    {
+      id: "whatsapp",
+      label: `WhatsApp: ${SITE_CONTACT.whatsapp.display}`,
+      icon: MessageCircle,
+      href: SITE_CONTACT.whatsapp.href,
+    },
+  ];
+
   const socialItems = [
     {
       id: "instagram",
@@ -29,12 +50,6 @@ function Footer() {
       label: "YouTube",
       icon: YoutubeIcon,
       href: SITE_CONTACT.youtube.href,
-    },
-    {
-      id: "whatsapp",
-      label: "WhatsApp",
-      icon: MessageCircle,
-      href: SITE_CONTACT.whatsapp.href,
     },
   ];
 
@@ -81,12 +96,20 @@ function Footer() {
             </div>
 
             <div>
-              <h3 className="smb-footer-heading">Follow Us</h3>
+              <h3 className="smb-footer-heading">Contact</h3>
               <div className="smb-footer-socials">
-                {socialItems.map((item) => {
+                {contactItems.map((item) => {
                   const IconComponent = item.icon;
-                  const inner = (
-                    <>
+                  const isExternal = item.href.startsWith("http");
+
+                  return (
+                    <a
+                      key={item.id}
+                      href={item.href}
+                      className="smb-footer-social-link"
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                    >
                       <span
                         className="smb-footer-social-icon-box"
                         aria-hidden="true"
@@ -94,28 +117,33 @@ function Footer() {
                         <IconComponent className="smb-footer-social-icon" />
                       </span>
                       <span>{item.label}</span>
-                    </>
+                    </a>
                   );
+                })}
+              </div>
+            </div>
 
-                  if (item.href) {
-                    const isExternal = item.href.startsWith("http");
-                    return (
-                      <a
-                        key={item.id}
-                        href={item.href}
-                        className="smb-footer-social-link"
-                        target={isExternal ? "_blank" : undefined}
-                        rel={isExternal ? "noopener noreferrer" : undefined}
-                      >
-                        {inner}
-                      </a>
-                    );
-                  }
-
+            <div>
+              <h3 className="smb-footer-heading">Social Media</h3>
+              <div className="smb-footer-socials">
+                {socialItems.map((item) => {
+                  const IconComponent = item.icon;
                   return (
-                    <span key={item.id} className="smb-footer-social-link">
-                      {inner}
-                    </span>
+                    <a
+                      key={item.id}
+                      href={item.href}
+                      className="smb-footer-social-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span
+                        className="smb-footer-social-icon-box"
+                        aria-hidden="true"
+                      >
+                        <IconComponent className="smb-footer-social-icon" />
+                      </span>
+                      <span>{item.label}</span>
+                    </a>
                   );
                 })}
               </div>
@@ -125,9 +153,6 @@ function Footer() {
           <div className="smb-footer-bottom">
             <p className="smb-footer-copyright">
               &copy; {CURRENT_YEAR} Shootmybus. All rights reserved.
-            </p>
-            <p className="smb-footer-bottom-tagline">
-              We Shoot. We Create Memories.
             </p>
           </div>
         </div>

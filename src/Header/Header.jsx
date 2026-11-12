@@ -142,10 +142,10 @@ function Header() {
           >
             <span className="smb-logo-frame">
               <img
-                src="/Logo/shootmybus-cutout.jpg.jpeg"
+                src="/Logo/shootmybus.jpeg"
                 alt="Shootmybus — Not Just a Shoot, It's a Memory."
                 width="640"
-                height="640"
+                // height="640"
                 className="smb-logo-img"
               />
             </span>

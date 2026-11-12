@@ -4,11 +4,22 @@ import "./Hero.css";
 
 // Switch `type` to "video" and set `videoSrc` when replacing the background image with video.
 const HERO_MEDIA = {
-  type: "image",
+  type: "video",
   imageSrc: "/Images/hero-bus.jpg",
   imageAlt: "Luxury tour coach bus driving on a scenic misty highway at twilight",
-  videoSrc: "/Videos/shootmybus-hero.mp4",
+  videoSrc: "/Images/hero.mp4",
 };
+
+const EYEBROW_TEXT =
+  "INDIA'S EXCLUSIVE BUS PHOTOGRAPHY & FILM PRODUCTION COMPANY";
+const EYEBROW_WORDS = EYEBROW_TEXT.split(" ");
+const WORD_DELAY_MS = 230;
+const REPEAT_PAUSE_MS = 2000;
+
+function prefersReducedMotion() {
+  if (typeof window === "undefined" || !window.matchMedia) return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 function findSectionElement(id) {
   const element = document.getElementById(id);
@@ -19,6 +30,9 @@ function findSectionElement(id) {
 
 function Hero() {
   const [isMediaReady, setIsMediaReady] = useState(false);
+  const [visibleWordCount, setVisibleWordCount] = useState(() =>
+    prefersReducedMotion() ? EYEBROW_WORDS.length : 1
+  );
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -26,6 +40,26 @@ function Hero() {
       setIsMediaReady(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      return undefined;
+    }
+
+    const isComplete = visibleWordCount >= EYEBROW_WORDS.length;
+    const delay = isComplete ? REPEAT_PAUSE_MS : WORD_DELAY_MS;
+
+    const timer = window.setTimeout(() => {
+      setVisibleWordCount((prev) =>
+        prev >= EYEBROW_WORDS.length ? 0 : prev + 1
+      );
+    }, delay);
+
+    return () => window.clearTimeout(timer);
+  }, [visibleWordCount]);
+
+  const isTypingComplete = visibleWordCount >= EYEBROW_WORDS.length;
+  const typedText = EYEBROW_WORDS.slice(0, visibleWordCount).join(" ");
 
   const handleSectionScroll = (event, targetId, hash) => {
     const target = findSectionElement(targetId);
@@ -55,7 +89,7 @@ function Hero() {
         {HERO_MEDIA.type === "video" ? (
           <video
             className={`smb-hero-media${isMediaReady ? " is-ready" : ""}`}
-            src={HERO_MEDIA.videoSrc}
+            src="/Images/hero.mp4"
             autoPlay
             loop
             muted
@@ -81,8 +115,14 @@ function Hero() {
         <div className="smb-hero-overlay" aria-hidden="true" />
 
         <div className="smb-hero-content">
-          <p className="smb-hero-eyebrow">
-            INDIA&apos;S EXCLUSIVE BUS PHOTOGRAPHY &amp; FILM PRODUCTION COMPANY
+          <p className="smb-hero-eyebrow" aria-label={EYEBROW_TEXT}>
+            <span className="smb-hero-eyebrow-ghost" aria-hidden="true">
+              {EYEBROW_TEXT}
+            </span>
+            <span className="smb-hero-eyebrow-live" aria-hidden="true">
+              {typedText}
+              {!isTypingComplete && <span className="smb-typing-cursor" />}
+            </span>
           </p>
 
           <h1 className="smb-hero-heading">

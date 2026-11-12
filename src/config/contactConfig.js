@@ -3,25 +3,34 @@
 
 export const SITE_CONTACT = {
   formEndpoint: "", // Optional backend/Formspree URL for live form submissions
+  phone: {
+    label: "Phone",
+    display: "86902 60722",
+    handle: "+91 86902 60722",
+    href: "tel:+918690260722",
+  },
   whatsapp: {
-    label: "WhatsApp Contact",
-    handle: "Configure WhatsApp in src/config/contactConfig.js",
-    href: "", // e.g. "https://wa.me/91XXXXXXXXXX"
+    label: "WhatsApp",
+    display: "86902 60722",
+    number: "918690260722",
+    handle: "86902 60722",
+    href: "https://wa.me/918690260722",
   },
   email: {
-    label: "Email Contact",
-    handle: "Configure email in src/config/contactConfig.js",
-    href: "", // e.g. "mailto:hello@shootmybus.in"
+    label: "Email",
+    display: "shootmybus@gmail.com",
+    handle: "shootmybus@gmail.com",
+    href: "mailto:shootmybus@gmail.com",
   },
   instagram: {
     label: "Instagram",
-    handle: "Configure Instagram in src/config/contactConfig.js",
-    href: "", // e.g. "https://instagram.com/shootmybus"
+    handle: "@shootmybus",
+    href: "https://www.instagram.com/shootmybus",
   },
   youtube: {
     label: "YouTube",
-    handle: "Configure YouTube in src/config/contactConfig.js",
-    href: "", // e.g. "https://youtube.com/@shootmybus"
+    handle: "@buses_lover_rakesh",
+    href: "https://www.youtube.com/@buses_lover_rakesh",
   },
 };
 
@@ -49,36 +58,46 @@ export const TRUSTED_BRANDS_ROW_TWO = [
   "Palbus Travels",
 ];
 
-// Editable testimonial drafts — clearly marked as drafts until approved feedback is provided by each client.
+// Proposed review copies — keep `approved: false` and `ratingConfirmed: false`
+// until the respective clients approve the wording and confirm their rating.
 export const TESTIMONIALS_DATA = [
   {
-    id: "draft-ram-dalal",
+    id: "ram-dalal",
     brandName: "Ram Dalal",
     category: "Fleet Operator",
-    isDraft: true,
-    statusLabel: "Draft Testimonial",
-    focusTag: "Professional Bus Photography & Visual Presentation",
-    draftSummary:
-      "Editable draft showcase highlighting professional bus photography, crisp exterior visual presentation, and cinematic coach shots. Replace with verified feedback upon client approval.",
+    isVerifiedClient: true,
+    approved: false,
+    approvalStatus: "awaiting_client_approval",
+    rating: null,
+    ratingConfirmed: false,
+    heading: "Professional Photography & Visual Excellence",
+    quote:
+      "An impressive approach to bus photography with exceptional attention to detail. The cinematic shots, creative compositions and professional presentation bring out the true beauty and identity of every bus. A great visual experience from start to finish.",
   },
   {
-    id: "draft-zingbus",
+    id: "zingbus",
     brandName: "Zingbus",
     category: "Intercity Travel Brand",
-    isDraft: true,
-    statusLabel: "Draft Testimonial",
-    focusTag: "Creative Bus Visuals & Cinematic Storytelling",
-    draftSummary:
-      "Editable draft showcase focusing on creative bus visuals, cinematic storytelling, and end-to-end commercial film production. Replace with verified feedback upon client approval.",
+    isVerifiedClient: true,
+    approved: false,
+    approvalStatus: "awaiting_client_approval",
+    rating: null,
+    ratingConfirmed: false,
+    heading: "Creative Vision & Cinematic Storytelling",
+    quote:
+      "Outstanding creativity and a fresh perspective on bus photography. The cinematic visuals, thoughtful compositions and professional storytelling create a distinctive visual experience that makes every frame memorable.",
   },
   {
-    id: "draft-vrl-travels",
+    id: "vrl-travels",
     brandName: "VRL Travels",
     category: "Transport Partner",
-    isDraft: true,
-    statusLabel: "Draft Testimonial",
-    focusTag: "Photography Quality & Attention to Detail",
-    draftSummary:
-      "Editable draft showcase centered on commercial bus photography quality, attention to fleet detail, and streamlined production experience. Replace with verified feedback upon client approval.",
+    isVerifiedClient: true,
+    approved: false,
+    approvalStatus: "awaiting_client_approval",
+    rating: null,
+    ratingConfirmed: false,
+    heading: "Professional Quality & Attention to Detail",
+    quote:
+      "Beautifully captured bus photography with a strong focus on visual quality, composition and detail. The professional presentation and cinematic approach make the overall work stand out.",
   },
 ];

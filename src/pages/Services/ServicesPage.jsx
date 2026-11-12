@@ -1,6 +1,13 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Expand,
+  X,
+} from "lucide-react";
 import SeoHead from "../../Component/SeoHead/SeoHead";
 import { useInView } from "../../hooks/useInView";
 import {
@@ -12,12 +19,47 @@ import {
 import "../Blog/BlogPage.css";
 import "./ServicesPage.css";
 
+const SERVICES_GALLERY = [
+  {
+    id: "gallery-tigra-front",
+    src: "/Images/IMG_2832.JPG.jpeg",
+    width: 1600,
+    height: 900,
+    alt: "Twin MG Tigra luxury buses front-angle exterior showcase",
+    caption: "Commercial Fleet Exterior Portrait",
+  },
+  {
+    id: "gallery-volvo-aerial",
+    src: "/Images/20.PNG",
+    width: 1600,
+    height: 900,
+    alt: "Elevated aerial view of twin Tegra Express Volvo 9600s coaches",
+    caption: "Aerial Convoy Perspective",
+  },
+  {
+    id: "gallery-sleeper-cabin",
+    src: "/Images/4.PNG",
+    width: 1600,
+    height: 900,
+    alt: "Warm illuminated Tegra Express Volvo sleeper berth interior",
+    caption: "Sleeper Berth Interior Lighting",
+  },
+  {
+    id: "gallery-tata-profile",
+    src: "/Images/IMG_2834.JPG.jpeg",
+    width: 1600,
+    height: 900,
+    alt: "Tata BS6 13.5m luxury coach full side profile photography",
+    caption: "Side-Profile Coach Craftsmanship",
+  },
+];
+
 const SERVICES_DETAIL = [
   {
     number: "01",
     title: "Professional Bus Reels",
     description:
-      "Vertical 9:16 storytelling engineered specifically for Instagram Reels, YouTube Shorts, and travel launch announcements. From stabilized door-entry walkthroughs of plush sleeper cabins to beat-synced exterior transitions, we turn new deliveries and flagship routes into high-engagement digital films.",
+      "Vertical 9:16 storytelling engineered specifically for Instagram Reels, YouTube Shorts, and travel launch announcements. From stabilized walkthroughs of plush sleeper cabins to beat-synced exterior transitions, we turn new deliveries and flagship routes into memorable films.",
     highlights: [
       "Gimbal-stabilized interior and exterior motion framing",
       "Vertical 9:16 social edits plus clean widescreen master cuts",
@@ -34,7 +76,7 @@ const SERVICES_DETAIL = [
     number: "02",
     title: "Cinematic Drone Shoots",
     description:
-      "Expansive aerial cinematography that showcases your coach conquering winding mountain ghats, coastal bridges, and six-lane Indian expressways. Every flight path is planned for crisp convoy alignment, clean top-down symmetry, and dramatic golden-hour depth.",
+      "Expansive aerial cinematography that showcases your coach conquering winding mountain ghats, coastal bridges, and six-lane Indian expressways. Every flight path is planned for crisp convoy alignment, top-down symmetry, and dramatic golden-hour depth.",
     highlights: [
       "Low-altitude lead chases and sweeping coastal or ghat reveals",
       "Synchronized multi-bus fleet formation framing from above",
@@ -86,6 +128,7 @@ const SERVICES_DETAIL = [
 function ServiceDetailRow({ service, index }) {
   const [rowRef, isInView] = useInView(0.14);
   const isReversed = index % 2 === 1;
+  const bookHref = `/contact?service=${encodeURIComponent(service.title)}`;
 
   return (
     <article
@@ -101,7 +144,7 @@ function ServiceDetailRow({ service, index }) {
           alt={service.imageAlt}
           width={service.imageWidth}
           height={service.imageHeight}
-          loading={index === 0 ? "eager" : "lazy"}
+          loading="lazy"
         />
       </div>
 
@@ -120,8 +163,8 @@ function ServiceDetailRow({ service, index }) {
         </ul>
 
         <div className="smb-srv-actions">
-          <Link to="/contact" className="smb-srv-btn-primary">
-            Book Your Shoot <ArrowRight size={16} aria-hidden="true" />
+          <Link to={bookHref} className="smb-srv-btn-primary">
+            Book This Service <ArrowRight size={16} aria-hidden="true" />
           </Link>
           <Link to={service.guideSlug} className="smb-srv-btn-link">
             Read Production Guide <ChevronRight size={16} aria-hidden="true" />
@@ -133,6 +176,49 @@ function ServiceDetailRow({ service, index }) {
 }
 
 export default function ServicesPage() {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const isLightboxOpen = selectedIndex !== null;
+  const activeGalleryItem = isLightboxOpen
+    ? SERVICES_GALLERY[selectedIndex]
+    : null;
+
+  const handleClose = useCallback(() => {
+    setSelectedIndex(null);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setSelectedIndex((prev) =>
+      prev === null
+        ? 0
+        : (prev - 1 + SERVICES_GALLERY.length) % SERVICES_GALLERY.length
+    );
+  }, []);
+
+  const handleNext = useCallback(() => {
+    setSelectedIndex((prev) =>
+      prev === null ? 0 : (prev + 1) % SERVICES_GALLERY.length
+    );
+  }, []);
+
+  useEffect(() => {
+    if (!isLightboxOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") handleClose();
+      else if (event.key === "ArrowLeft") handlePrev();
+      else if (event.key === "ArrowRight") handleNext();
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isLightboxOpen, handleClose, handlePrev, handleNext]);
+
   const schemas = useMemo(
     () => [
       {
@@ -190,20 +276,54 @@ export default function ServicesPage() {
           </nav>
 
           <header className="smb-srvpage-header">
-            <span className="smb-srvpage-eyebrow">WHAT WE OFFER</span>
+            <span className="smb-srvpage-eyebrow">OUR SERVICES</span>
             <h1 className="smb-srvpage-h1">
-              Professional Bus Photography &amp; Film Production Services
+              Professional Bus Photography &amp; Film Production
             </h1>
             <p className="smb-srvpage-lead">
-              Dedicated production workflows crafted for Indian intercity operators, luxury charter
-              fleets, and coach bodybuilders—combining clean ground photography, stabilized vertical
-              reels, aerial drones, and expressway running shots.
+              From cinematic bus reels to breathtaking aerial perspectives, we
+              capture every journey through our lens.
             </p>
           </header>
 
+          <section
+            className="smb-srv-gallery-section"
+            aria-label="Services showcase gallery"
+          >
+            <div className="smb-srv-gallery-grid">
+              {SERVICES_GALLERY.map((item, idx) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className="smb-srv-gallery-card"
+                  aria-label={`Preview ${item.caption}`}
+                  onClick={() => setSelectedIndex(idx)}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    className="smb-srv-gallery-img"
+                  />
+                  <span className="smb-srv-gallery-scrim" aria-hidden="true" />
+                  <span className="smb-srv-gallery-badge" aria-hidden="true">
+                    <Expand size={16} />
+                  </span>
+                  <span className="smb-srv-gallery-caption">{item.caption}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+
           <div className="smb-srvpage-list">
             {SERVICES_DETAIL.map((service, index) => (
-              <ServiceDetailRow key={service.number} service={service} index={index} />
+              <ServiceDetailRow
+                key={service.number}
+                service={service}
+                index={index}
+              />
             ))}
           </div>
 
@@ -211,17 +331,80 @@ export default function ServicesPage() {
             <div>
               <h2>Launching a New Coach or Refreshing Your Fleet Visuals?</h2>
               <p>
-                Tell us your coach configuration, operating city, and preferred rollout schedule—we
-                will plan every shot from static interior comfort to golden-hour running sequences.
+                Tell us your coach configuration, operating city, and preferred
+                rollout schedule—we will plan every shot from static interior
+                comfort to golden-hour running sequences.
               </p>
             </div>
             <Link to="/contact" className="smb-cta-pill-btn">
-              Contact Shootmybus <ArrowRight size={17} aria-hidden="true" />
+              Book Your Shoot <ArrowRight size={17} aria-hidden="true" />
             </Link>
           </section>
         </div>
+
+        {isLightboxOpen && activeGalleryItem && (
+          <div
+            className="smb-srv-lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Service gallery preview"
+            onClick={handleClose}
+          >
+            <button
+              type="button"
+              className="smb-srv-lightbox-close"
+              aria-label="Close preview"
+              onClick={(event) => {
+                event.stopPropagation();
+                handleClose();
+              }}
+            >
+              <X size={22} />
+            </button>
+
+            <button
+              type="button"
+              className="smb-srv-lightbox-nav smb-srv-lightbox-nav--prev"
+              aria-label="Previous image"
+              onClick={(event) => {
+                event.stopPropagation();
+                handlePrev();
+              }}
+            >
+              <ChevronLeft size={24} />
+            </button>
+
+            <div
+              className="smb-srv-lightbox-stage"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <img
+                src={activeGalleryItem.src}
+                alt={activeGalleryItem.alt}
+                className="smb-srv-lightbox-img"
+              />
+              <div className="smb-srv-lightbox-meta">
+                <span>{activeGalleryItem.alt}</span>
+                <span className="smb-srv-lightbox-count">
+                  {selectedIndex + 1} / {SERVICES_GALLERY.length}
+                </span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="smb-srv-lightbox-nav smb-srv-lightbox-nav--next"
+              aria-label="Next image"
+              onClick={(event) => {
+                event.stopPropagation();
+                handleNext();
+              }}
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+        )}
       </main>
     </>
   );
 }
-

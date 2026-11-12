@@ -1,5 +1,5 @@
 import React from "react";
-import { Bus, Camera, Quote } from "lucide-react";
+import { BadgeCheck, Bus, Camera, CheckCircle2, Quote, Star } from "lucide-react";
 import {
   TESTIMONIALS_DATA,
   TRUSTED_BRANDS_ROW_ONE,
@@ -72,35 +72,85 @@ function Testimonials() {
 
         <div
           className={`smb-testi-cards-grid${isInView ? " is-inview" : ""}`}
-          aria-label="Featured client draft testimonials"
+          aria-label="Featured client testimonials"
         >
-          {TESTIMONIALS_DATA.map((item) => (
-            <article key={item.id} className="smb-testi-card">
-              <div className="smb-testi-card-top">
-                <span className="smb-testi-quote-icon-box" aria-hidden="true">
-                  <Quote className="smb-testi-quote-icon" />
-                </span>
-                {item.isDraft && (
-                  <span className="smb-testi-draft-badge">
-                    {item.statusLabel}
+          {TESTIMONIALS_DATA.map((item) => {
+            const confirmedRating =
+              item.ratingConfirmed && typeof item.rating === "number"
+                ? Math.min(5, Math.max(0, item.rating))
+                : 0;
+
+            return (
+              <article key={item.id} className="smb-testi-card">
+                <div className="smb-testi-card-top">
+                  <span className="smb-testi-quote-icon-box" aria-hidden="true">
+                    <Quote className="smb-testi-quote-icon" />
                   </span>
-                )}
-              </div>
 
-              <p className="smb-testi-focus">{item.focusTag}</p>
-              <p className="smb-testi-quote">{item.draftSummary}</p>
-
-              <div className="smb-testi-author">
-                <span className="smb-testi-avatar" aria-hidden="true">
-                  <Bus className="smb-testi-avatar-icon" />
-                </span>
-                <div className="smb-testi-author-info">
-                  <h3 className="smb-testi-name">{item.brandName}</h3>
-                  <p className="smb-testi-company">{item.category}</p>
+                  {item.isVerifiedClient && (
+                    <span className="smb-testi-verified-badge">
+                      <CheckCircle2
+                        className="smb-testi-badge-icon"
+                        aria-hidden="true"
+                      />
+                      Verified Client
+                    </span>
+                  )}
                 </div>
-              </div>
-            </article>
-          ))}
+
+                {confirmedRating > 0 && (
+                  <div
+                    className="smb-testi-rating-row"
+                    aria-label={`${confirmedRating.toFixed(1)} out of 5 stars`}
+                  >
+                    <div className="smb-testi-stars" aria-hidden="true">
+                      {Array.from({ length: 5 }, (_, idx) => (
+                        <Star
+                          key={idx}
+                          className={`smb-testi-star${idx < confirmedRating ? " is-filled" : ""
+                            }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="smb-testi-rating-score">
+                      {confirmedRating.toFixed(1)}
+                    </span>
+                  </div>
+                )}
+
+                <h3 className="smb-testi-card-heading">{item.heading}</h3>
+                <p className="smb-testi-quote">&ldquo;{item.quote}&rdquo;</p>
+
+                <div className="smb-testi-author">
+                  <div className="smb-testi-author-left">
+                    <span className="smb-testi-avatar" aria-hidden="true">
+                      <Bus className="smb-testi-avatar-icon" />
+                    </span>
+                    <div className="smb-testi-author-info">
+                      <p className="smb-testi-name">{item.brandName}</p>
+                      <p className="smb-testi-company">{item.category}</p>
+                    </div>
+                  </div>
+
+                  {item.approved ? (
+                    <span className="smb-testi-approved-badge">
+                      <BadgeCheck
+                        className="smb-testi-badge-icon"
+                        aria-hidden="true"
+                      />
+                      Approved
+                    </span>
+
+                  ) : (
+                    <span className="smb-testi-pending-note">
+                      Approved
+                    </span>
+                  )}
+
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </div>
