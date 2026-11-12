@@ -4,7 +4,7 @@ export const SITE_SEO = {
   brandName: "Shootmybus",
   tagline: "India's Exclusive Bus Photography & Film Production Company",
   // Single configurable production origin (update when deploying final domain)
-  siteUrl: "https://www.shootmybus.in",
+  siteUrl: "https://www.shootmybus.com",
   defaultImage: "/Images/og-preview.jpg",
   defaultImageWidth: "1200",
   defaultImageHeight: "630",

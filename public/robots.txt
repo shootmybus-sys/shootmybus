@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.shootmybus.in/sitemap.xml
+Sitemap: https://www.shootmybus.com/sitemap.xml
 
