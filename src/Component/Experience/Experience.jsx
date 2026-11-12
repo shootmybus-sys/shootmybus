@@ -5,21 +5,21 @@ import "./Experience.css";
 const EXPERIENCE_MEDIA = {
   main: {
     id: "main",
-    imageSrc: "/Images/10.PNG",
-    imageAlt: "Luxury sleeper coach interior technology and cabin console view",
+    imageSrc: "/Images/22.png",
+    imageAlt: "Baba Holidays Zingbus Maxx twin black Volvo sleeper coaches delivery showcase",
     videoSrc: "",
   },
   supporting: [
     {
       id: "cabin",
-      imageSrc: "/Images/5.PNG",
-      imageAlt: "Plush Volvo sleeper backrest and bespoke cabin comfort detail",
+      imageSrc: "/Images/21.png",
+      imageAlt: "Shrinath Solitaire Volvo luxury coach exterior and driver cockpit showcase",
       videoSrc: "",
     },
     {
       id: "highway",
-      imageSrc: "/Images/4.PNG",
-      imageAlt: "Warm ambient lighting inside a luxury sleeper berth compartment",
+      imageSrc: "/Images/23.png",
+      imageAlt: "Zingbus Maxx Baba Holidays twin black Volvo coaches front lineup",
       videoSrc: "",
     },
   ],

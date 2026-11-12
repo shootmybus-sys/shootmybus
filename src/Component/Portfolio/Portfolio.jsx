@@ -44,6 +44,21 @@ const PORTFOLIO_ROW_ONE = [
     src: "/Images/IMG_2847.JPG.jpeg",
     alt: "Luxury coach spacious gangway and quilted sleeper berths",
   },
+  {
+    id: "shrinath-solitaire-volvo",
+    src: "/Images/21.png",
+    alt: "Shrinath Solitaire Volvo luxury coach exterior and driver cockpit showcase",
+  },
+  {
+    id: "zingbus-maxx-baba-delivery",
+    src: "/Images/22.png",
+    alt: "Baba Holidays Zingbus Maxx twin black Volvo sleeper coaches showcase",
+  },
+  {
+    id: "zingbus-maxx-twin-front",
+    src: "/Images/23.png",
+    alt: "Zingbus Maxx Baba Holidays twin black Volvo coaches front lineup",
+  },
 ];
 
 const PORTFOLIO_ROW_TWO = [
@@ -86,6 +101,21 @@ const PORTFOLIO_ROW_TWO = [
     id: "ramkrupa-dual-lineup",
     src: "/Images/IMG_2835.JPG.jpeg",
     alt: "Three-quarter twin luxury bus fleet lineup photography",
+  },
+  {
+    id: "zingbus-maxx-wheel-detail",
+    src: "/Images/24.png",
+    alt: "Zingbus Maxx Volvo luxury coach wheel arch and Michelin tyre detail",
+  },
+  {
+    id: "zingbus-maxx-depot-fleet",
+    src: "/Images/25.png",
+    alt: "Baba Holidays Zingbus Maxx black Volvo sleeper fleet parked in formation",
+  },
+  {
+    id: "zingbus-maxx-owner-portrait",
+    src: "/Images/26.png",
+    alt: "Baba Holidays Zingbus Maxx twin black Volvo coaches delivery portrait",
   },
 ];
 
