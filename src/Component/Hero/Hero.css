@@ -1,0 +1,326 @@
+.smb-hero {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: -110px;
+  padding: 12px 26px 16px;
+  overflow-x: clip;
+}
+
+.smb-hero-frame {
+  position: relative;
+  width: 100%;
+  min-height: clamp(620px, calc(100svh - 38px), 920px);
+  border-radius: 32px;
+  overflow: hidden;
+  background-color: #102b60;
+  box-shadow:
+    0 24px 60px rgba(16, 43, 96, 0.22),
+    0 4px 16px rgba(16, 43, 96, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: smbFrameReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.smb-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #102b60;
+}
+
+.smb-hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+  z-index: 1;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  user-select: none;
+}
+
+.smb-hero-media.is-ready {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Subtle dark gradient overlay for Navbar & Hero typography readability */
+.smb-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  /* background: linear-gradient(180deg,
+      rgba(8, 20, 48, 0.56) 0%,
+      rgba(10, 24, 54, 0.44) 42%,
+      rgba(10, 24, 54, 0.68) 100%); */
+  pointer-events: none;
+}
+
+/* Centered Typography & CTA Layout */
+.smb-hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 980px;
+  padding: 96px 36px 44px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.smb-hero-eyebrow {
+  margin: 0 0 20px;
+  color: #78c99b;
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  text-shadow: 0 2px 14px rgba(8, 20, 48, 0.55);
+  animation: smbHeroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.smb-hero-heading {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.25rem, 4.6vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  text-shadow: 0 4px 28px rgba(8, 20, 48, 0.52);
+  animation: smbHeroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+}
+
+.smb-hero-accent-green {
+  color: #78c99b;
+}
+
+.smb-hero-accent-teal {
+  color: #28a99a;
+}
+
+.smb-hero-tagline {
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1.0625rem, 1.75vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 18px rgba(8, 20, 48, 0.5);
+  animation: smbHeroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
+}
+
+/* CTA Buttons */
+.smb-hero-actions {
+  margin-top: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  animation: smbHeroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.46s both;
+}
+
+.smb-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  font-size: 0.96875rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition:
+    background-color 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.28s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smb-hero-btn:focus-visible {
+  outline: 2px solid #78c99b;
+  outline-offset: 3px;
+}
+
+.smb-hero-btn--primary {
+  background-color: #28a99a;
+  color: #ffffff;
+  border: 1.5px solid #28a99a;
+  box-shadow: 0 10px 26px rgba(40, 169, 154, 0.32);
+}
+
+.smb-hero-btn--primary:hover {
+  background-color: #219184;
+  border-color: #219184;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(40, 169, 154, 0.42);
+}
+
+.smb-hero-btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smb-hero-btn--primary:hover .smb-hero-btn-icon {
+  transform: translateX(4px);
+}
+
+.smb-hero-btn--secondary {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.smb-hero-btn--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(8, 20, 48, 0.26);
+}
+
+@keyframes smbFrameReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes smbHeroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .smb-hero {
+    margin-top: -94px;
+    padding: 10px 20px 14px;
+  }
+
+  .smb-hero-frame {
+    min-height: clamp(540px, calc(100svh - 32px), 780px);
+    border-radius: 26px;
+  }
+
+  .smb-hero-content {
+    max-width: 780px;
+    padding: 88px 28px 40px;
+  }
+
+  .smb-hero-heading {
+    font-size: clamp(2rem, 4.8vw, 3.25rem);
+  }
+
+  .smb-hero-tagline {
+    margin-top: 18px;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+  }
+
+  .smb-hero-actions {
+    margin-top: 28px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .smb-hero {
+    margin-top: -86px;
+    padding: 8px 12px 12px;
+  }
+
+  .smb-hero-frame {
+    min-height: clamp(520px, calc(100svh - 26px), 720px);
+    border-radius: 22px;
+  }
+
+  .smb-hero-media {
+    object-position: 62% center;
+  }
+
+  .smb-hero-content {
+    padding: 84px 20px 36px;
+  }
+
+  .smb-hero-eyebrow {
+    margin-bottom: 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+
+  .smb-hero-heading {
+    font-size: clamp(1.7rem, 6.8vw, 2.35rem);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+
+  .smb-hero-tagline {
+    margin-top: 14px;
+    font-size: clamp(0.95rem, 3.8vw, 1.125rem);
+    letter-spacing: 0.02em;
+  }
+
+  .smb-hero-actions {
+    margin-top: 26px;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .smb-hero-btn {
+    width: 100%;
+    max-width: 280px;
+    min-height: 48px;
+    padding: 12px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .smb-hero-frame,
+  .smb-hero-eyebrow,
+  .smb-hero-heading,
+  .smb-hero-tagline,
+  .smb-hero-actions {
+    animation: none;
+  }
+
+  .smb-hero-media,
+  .smb-hero-btn,
+  .smb-hero-btn-icon {
+    transition: none;
+    transform: none;
+  }
+}

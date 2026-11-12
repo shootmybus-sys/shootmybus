@@ -1,0 +1,383 @@
+.smb-services {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--bg-main);
+  padding: clamp(32px, 3.6vw, 48px) clamp(20px, 4vw, 48px)
+    clamp(36px, 4vw, 52px);
+  overflow-x: clip;
+}
+
+.smb-services-container {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Section Heading */
+.smb-services-header {
+  margin-bottom: clamp(32px, 3.8vw, 48px);
+  text-align: left;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smb-services-header.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.smb-services-eyebrow {
+  margin: 0 0 12px;
+  color: #28a99a;
+  font-size: clamp(0.75rem, 0.95vw, 0.875rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.smb-services-title {
+  margin: 0;
+  color: #102b60;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+/* Horizontal Expanding Accordion Gallery (Single Row of 4) */
+.smb-accordion {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 14px;
+  width: 100%;
+  height: clamp(410px, 34vw, 450px);
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+
+.smb-accordion.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.smb-accordion-item {
+  position: relative;
+  flex: 1 1 0%;
+  min-width: 0;
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #102b60;
+  cursor: pointer;
+  box-shadow:
+    0 14px 32px rgba(16, 43, 96, 0.08),
+    0 2px 8px rgba(16, 43, 96, 0.04);
+  transition:
+    flex 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Expand hovered box via flex-grow while siblings shrink smoothly */
+@media (hover: hover) and (pointer: fine) {
+  .smb-accordion:hover .smb-accordion-item {
+    flex: 0.72 1 0%;
+  }
+
+  .smb-accordion .smb-accordion-item:hover,
+  .smb-accordion .smb-accordion-item:focus-within {
+    flex: 2.84 1 0%;
+    box-shadow:
+      0 24px 50px rgba(16, 43, 96, 0.18),
+      0 8px 20px rgba(40, 169, 154, 0.12);
+  }
+}
+
+/* Touch / explicit active expansion */
+.smb-accordion.has-active .smb-accordion-item {
+  flex: 0.72 1 0%;
+}
+
+.smb-accordion .smb-accordion-item.is-active {
+  flex: 2.84 1 0%;
+  box-shadow:
+    0 24px 50px rgba(16, 43, 96, 0.18),
+    0 8px 20px rgba(40, 169, 154, 0.12);
+}
+
+.smb-accordion-item:focus-visible {
+  outline: 2px solid #28a99a;
+  outline-offset: 3px;
+}
+
+/* Full-bleed Background Image / Video with Subtle Zoom */
+.smb-accordion-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+  transform: scale(1);
+  filter: brightness(0.92) saturate(0.98);
+  transition:
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  pointer-events: none;
+  user-select: none;
+}
+
+.smb-accordion-item:hover .smb-accordion-media,
+.smb-accordion-item:focus-within .smb-accordion-media,
+.smb-accordion-item.is-active .smb-accordion-media {
+  transform: scale(1.06);
+  filter: brightness(1.03) saturate(1.06);
+}
+
+/* Subtle Dark Overlay */
+.smb-accordion-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg,
+      rgba(10, 24, 54, 0.38) 0%,
+      rgba(10, 24, 54, 0.12) 38%,
+      rgba(10, 24, 54, 0.56) 70%,
+      rgba(10, 24, 54, 0.9) 100%);
+  transition: opacity 0.65s ease;
+  pointer-events: none;
+}
+
+.smb-accordion-item:hover .smb-accordion-overlay,
+.smb-accordion-item:focus-within .smb-accordion-overlay,
+.smb-accordion-item.is-active .smb-accordion-overlay {
+  opacity: 0.84;
+}
+
+/* Minimal Card Content */
+.smb-accordion-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 24px 22px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.smb-accordion-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.smb-accordion-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #78c99b;
+  background-color: rgba(16, 43, 96, 0.52);
+  border: 1px solid rgba(120, 201, 155, 0.32);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease;
+}
+
+.smb-accordion-item:hover .smb-accordion-number,
+.smb-accordion-item:focus-within .smb-accordion-number,
+.smb-accordion-item.is-active .smb-accordion-number {
+  background-color: #28a99a;
+  border-color: #28a99a;
+  color: #ffffff;
+}
+
+.smb-accordion-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #28a99a;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(40, 169, 154, 0.35);
+  opacity: 0;
+  transform: translate(-6px, 6px) scale(0.84);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smb-accordion-arrow-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.smb-accordion-item:hover .smb-accordion-arrow,
+.smb-accordion-item:focus-within .smb-accordion-arrow,
+.smb-accordion-item.is-active .smb-accordion-arrow {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+.smb-accordion-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateY(0);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smb-accordion-item:hover .smb-accordion-bottom,
+.smb-accordion-item:focus-within .smb-accordion-bottom,
+.smb-accordion-item.is-active .smb-accordion-bottom {
+  transform: translateY(-4px);
+}
+
+.smb-accordion-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.05rem, 1.45vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  text-shadow: 0 3px 16px rgba(8, 20, 48, 0.68);
+  overflow-wrap: break-word;
+  transition: font-size 0.5s ease;
+}
+
+.smb-accordion-bar {
+  margin-top: 10px;
+  width: 24px;
+  height: 3px;
+  border-radius: 9999px;
+  background-color: #78c99b;
+  opacity: 0.78;
+  transition:
+    width 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.smb-accordion-item:hover .smb-accordion-bar,
+.smb-accordion-item:focus-within .smb-accordion-bar,
+.smb-accordion-item.is-active .smb-accordion-bar {
+  width: 56px;
+  background-color: #28a99a;
+  opacity: 1;
+}
+
+/* Tablet: Keep 4 boxes in a single horizontal row */
+@media (max-width: 1024px) {
+  .smb-services {
+    padding: 38px 20px clamp(68px, 8vw, 96px);
+  }
+
+  .smb-accordion {
+    height: 390px;
+    gap: 10px;
+  }
+
+  .smb-accordion-item {
+    border-radius: 18px;
+  }
+
+  .smb-accordion-content {
+    padding: 18px 16px;
+  }
+
+  .smb-accordion-title {
+    font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+  }
+}
+
+/* Mobile: Touch-friendly horizontal swipeable gallery */
+@media (max-width: 767px) {
+  .smb-services {
+    padding: 32px 16px 60px;
+  }
+
+  .smb-services-header {
+    margin-bottom: 28px;
+  }
+
+  .smb-accordion {
+    height: 380px;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .smb-accordion::-webkit-scrollbar {
+    display: none;
+  }
+
+  .smb-accordion .smb-accordion-item,
+  .smb-accordion.has-active .smb-accordion-item,
+  .smb-accordion .smb-accordion-item.is-active {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    border-radius: 20px;
+  }
+
+  .smb-accordion-content {
+    padding: 22px 20px;
+  }
+
+  .smb-accordion-arrow {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.95);
+  }
+
+  .smb-accordion-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .smb-services-header,
+  .smb-accordion,
+  .smb-accordion-item,
+  .smb-accordion-media,
+  .smb-accordion-overlay,
+  .smb-accordion-number,
+  .smb-accordion-arrow,
+  .smb-accordion-bottom,
+  .smb-accordion-bar {
+    transition: none;
+  }
+
+  .smb-services-header,
+  .smb-accordion {
+    opacity: 1;
+    transform: none;
+  }
+}

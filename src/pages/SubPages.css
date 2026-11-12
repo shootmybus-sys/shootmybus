@@ -1,0 +1,158 @@
+.smb-subpage-shell {
+  background: var(--bg-main);
+  color: var(--brand-navy);
+  padding-top: 36px;
+  text-align: left;
+}
+
+.smb-subpage-shell--about .smb-experience {
+  background-color: var(--bg-main);
+}
+
+.smb-subpage-shell--portfolio .smb-portfolio {
+  background-color: var(--bg-white);
+}
+
+.smb-subpage-banner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px) 24px;
+  text-align: left;
+}
+
+.smb-subpage-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #28a99a;
+  margin-bottom: 12px;
+}
+
+.smb-subpage-h1 {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.1vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #102b60;
+  max-width: 820px;
+}
+
+.smb-subpage-lead {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.66;
+  color: #4f5d75;
+  max-width: 720px;
+}
+
+.smb-subpage-cta-band {
+  max-width: 1340px;
+  margin: 16px auto 80px;
+  padding: 0 clamp(20px, 4vw, 48px);
+}
+
+.smb-subpage-cta-card {
+  padding: 40px 36px;
+  border-radius: 22px;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(16, 43, 96, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.smb-subpage-cta-card h2 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #102b60;
+}
+
+.smb-subpage-cta-card p {
+  margin: 0;
+  color: #4f5d75;
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.smb-subpage-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: #102b60;
+  color: #ffffff;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.smb-subpage-btn-primary:hover {
+  background: #28a99a;
+  transform: translateY(-2px);
+}
+
+.smb-subpage-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 43, 96, 0.22);
+  color: #102b60;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.smb-subpage-btn-outline:hover {
+  border-color: #28a99a;
+  color: #28a99a;
+}
+
+.smb-notfound {
+  padding-bottom: 96px;
+}
+
+.smb-notfound-inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 36px clamp(20px, 4vw, 48px);
+  text-align: left;
+}
+
+.smb-notfound-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .smb-subpage-shell {
+    padding-top: 24px;
+  }
+
+  .smb-subpage-banner {
+    padding: 0 16px 16px;
+  }
+
+  .smb-subpage-cta-band {
+    padding: 0 16px;
+  }
+
+  .smb-subpage-cta-card {
+    padding: 28px 20px;
+  }
+}

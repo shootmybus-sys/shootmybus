@@ -1,0 +1,252 @@
+.smb-process {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--bg-secondary);
+  padding: clamp(28px, 3vw, 38px) clamp(20px, 4vw, 48px)
+    clamp(32px, 3.5vw, 44px);
+  overflow-x: clip;
+}
+
+.smb-process-container {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.smb-process-header {
+  text-align: left;
+  max-width: 760px;
+  margin: 0 0 clamp(36px, 4vw, 52px);
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smb-process-header.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.smb-process-eyebrow {
+  margin: 0 0 12px;
+  color: #28a99a;
+  font-size: clamp(0.75rem, 0.95vw, 0.875rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.smb-process-heading {
+  margin: 0;
+  color: #102b60;
+  font-size: clamp(1.95rem, 3.7vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.smb-process-highlight {
+  color: #28a99a;
+}
+
+.smb-process-subtitle {
+  margin: 16px 0 0;
+  max-width: 56ch;
+  color: rgba(16, 43, 96, 0.74);
+  font-size: clamp(0.96875rem, 1.15vw, 1.09375rem);
+  line-height: 1.65;
+}
+
+/* Four Steps Horizontal Row */
+.smb-process-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Connecting line across step badges on desktop */
+.smb-process-grid::before {
+  content: "";
+  position: absolute;
+  top: 52px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(40, 169, 154, 0.22) 0%,
+    rgba(40, 169, 154, 0.55) 50%,
+    rgba(120, 201, 155, 0.35) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.smb-process-slot {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smb-process-slot.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.smb-process-card {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 26px 24px 28px;
+  border-radius: 22px;
+  background-color: #ffffff;
+  border: 1px solid rgba(16, 43, 96, 0.08);
+  box-shadow:
+    0 12px 32px rgba(16, 43, 96, 0.05),
+    0 2px 8px rgba(40, 169, 154, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.smb-process-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(40, 169, 154, 0.38);
+  box-shadow:
+    0 20px 44px rgba(16, 43, 96, 0.1),
+    0 6px 16px rgba(40, 169, 154, 0.08);
+}
+
+.smb-process-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.smb-process-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #28a99a;
+  background-color: #ffffff;
+  border: 1.5px solid rgba(40, 169, 154, 0.35);
+  box-shadow: 0 6px 16px rgba(40, 169, 154, 0.08);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.smb-process-card:hover .smb-process-icon-box {
+  background-color: #28a99a;
+  border-color: #28a99a;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.smb-process-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.85;
+}
+
+.smb-process-step {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #28a99a;
+  padding: 4px 11px;
+  border-radius: 9999px;
+  background-color: rgba(120, 201, 155, 0.14);
+}
+
+.smb-process-title {
+  margin: 0 0 10px;
+  color: #102b60;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.smb-process-desc {
+  margin: 0;
+  color: rgba(16, 43, 96, 0.74);
+  font-size: 0.9375rem;
+  line-height: 1.62;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .smb-process {
+    padding: 28px 20px 34px;
+  }
+
+  .smb-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .smb-process-grid::before {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .smb-process {
+    padding: 20px 16px 24px;
+  }
+
+  .smb-process-header {
+    margin-bottom: 28px;
+  }
+
+  .smb-process-heading {
+    font-size: clamp(1.65rem, 6.4vw, 2.2rem);
+  }
+
+  .smb-process-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .smb-process-card {
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smb-process-header,
+  .smb-process-slot,
+  .smb-process-card,
+  .smb-process-icon-box {
+    transition: none;
+  }
+
+  .smb-process-header,
+  .smb-process-slot {
+    opacity: 1;
+    transform: none;
+  }
+}
+
