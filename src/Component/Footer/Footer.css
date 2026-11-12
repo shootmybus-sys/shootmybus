@@ -10,7 +10,7 @@
   box-sizing: border-box;
   background-color: var(--brand-navy);
   color: var(--bg-white);
-  border-radius: 32px 32px 0 0;
+  border-radius: 100px 100px 0 0;
   padding: clamp(48px, 6vw, 72px) clamp(20px, 4vw, 48px) 28px;
 }
 
@@ -230,6 +230,7 @@ a.smb-footer-social-link:hover .smb-footer-social-icon-box {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .smb-footer-logo-link,
   .smb-footer-link,
   .smb-footer-social-link,
@@ -237,4 +238,3 @@ a.smb-footer-social-link:hover .smb-footer-social-icon-box {
     transition: none;
   }
 }
-

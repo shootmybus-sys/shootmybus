@@ -58,8 +58,8 @@
   text-decoration: none;
   border-radius: 9999px;
   padding: 3px 12px;
-  background-color: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 2px 10px rgba(8, 20, 48, 0.12);
+  background-color: transparent;
+  box-shadow: none;
   transition:
     transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
     background-color 0.35s ease,
@@ -97,7 +97,6 @@
   height: auto;
   display: block;
   transform: translateY(-4px);
-  mix-blend-mode: multiply;
   user-select: none;
 }
 

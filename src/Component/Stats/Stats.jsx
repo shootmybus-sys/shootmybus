@@ -21,7 +21,7 @@ const STATS_CONFIG = [
   {
     id: "clients",
     label: "Happy Clients",
-    target: 50, // Placeholder value
+    target: 200, // Placeholder value
     suffix: "+",
     icon: Users,
   },
