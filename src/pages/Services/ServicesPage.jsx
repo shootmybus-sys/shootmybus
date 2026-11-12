@@ -14,6 +14,7 @@ import {
   PAGE_SEO,
   SITE_SEO,
   buildBreadcrumbSchema,
+  buildWebPageSchema,
   toAbsoluteUrl,
 } from "../../config/seoConfig";
 import "../Blog/BlogPage.css";
@@ -122,6 +123,39 @@ const SERVICES_DETAIL = [
     imageAlt:
       "Commercial exterior bus photography of twin MG Tigra coaches for Shree Ramkrupa Travels",
     guideSlug: "/blog/bus-photography-india-complete-guide",
+  },
+];
+
+const SERVICES_FAQS = [
+  {
+    question: "Where can I book professional bus photography in India?",
+    answer:
+      "You can book professional bus photography in India directly through Shootmybus at shootmybus.com/contact, via WhatsApp or phone on +91 86902 60722, or by emailing shootmybus@gmail.com.",
+  },
+  {
+    question: "Who provides cinematic bus reels?",
+    answer:
+      "Shootmybus produces cinematic bus reels tailored for intercity operators, sleeper coach brands, and travel companies looking to showcase exteriors, cabins, and highway motion on Instagram and YouTube.",
+  },
+  {
+    question: "Can I book drone photography for my bus?",
+    answer:
+      "Yes. Shootmybus offers bus drone photography and aerial videography to capture highway tracking sequences, depot fleet lineups, and wide-angle scenic coach visuals.",
+  },
+  {
+    question: "Do you provide running bus photography?",
+    answer:
+      "Yes. Our team captures dynamic running bus photography and rolling highway shots designed to highlight road presence, livery design, and motion.",
+  },
+  {
+    question: "How can bus operators book a professional photoshoot?",
+    answer:
+      "Bus operators can submit their name, contact details, city, preferred shoot date, and required service on our Book Your Shoot page (/contact) or message us on WhatsApp at +91 86902 60722 to coordinate the shoot schedule.",
+  },
+  {
+    question: "Which cities in India do you serve?",
+    answer:
+      "Shootmybus operates across India, traveling on-location to fleet depots, highway corridors, and bus delivery hubs nationwide based on your route and rollout schedule.",
   },
 ];
 
@@ -249,6 +283,19 @@ export default function ServicesPage() {
           })),
         },
       },
+      buildWebPageSchema(PAGE_SEO.services),
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: SERVICES_FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
       buildBreadcrumbSchema([
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },
@@ -326,6 +373,21 @@ export default function ServicesPage() {
               />
             ))}
           </div>
+
+          <section className="smb-srvpage-faq" aria-label="Frequently asked questions">
+            <div className="smb-srvpage-faq-header">
+              <span className="smb-subpage-eyebrow">COMMON QUESTIONS</span>
+              <h2>Bus Photoshoot &amp; Film Production FAQs</h2>
+            </div>
+            <div className="smb-srvpage-faq-grid">
+              {SERVICES_FAQS.map((faq) => (
+                <article key={faq.question} className="smb-srvpage-faq-card">
+                  <h3>{faq.question}</h3>
+                  <p>{faq.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
           <section className="smb-srvpage-footer-cta" aria-label="Book production">
             <div>

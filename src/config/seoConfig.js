@@ -89,14 +89,35 @@ export function buildOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_SEO.siteUrl}/#organization`,
     name: SITE_SEO.brandName,
-    url: SITE_SEO.siteUrl,
+    url: `${SITE_SEO.siteUrl}/`,
     logo: toAbsoluteUrl(SITE_SEO.logoUrl),
     email: SITE_CONTACT.email.display,
     telephone: "+91-86902-60722",
     sameAs: [SITE_CONTACT.instagram.href, SITE_CONTACT.youtube.href],
     description:
-      "Dedicated automotive visual studio specializing in commercial bus photography, cinematic coach reels, drone shoots, and running shots across India.",
+      "Shootmybus is India's bus photography, cinematic videography, drone shoot, and commercial coach film production company serving bus operators and travel brands nationwide.",
+    knowsAbout: [
+      "Bus Photography in India",
+      "Professional Bus Photography",
+      "Bus Videography",
+      "Cinematic Bus Reels",
+      "Bus Drone Photography",
+      "Running Bus Photography",
+      "Luxury Bus Photography",
+      "Bus Film Production",
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+91-86902-60722",
+        email: SITE_CONTACT.email.display,
+        contactType: "customer service",
+        areaServed: "IN",
+        availableLanguage: ["English", "Hindi"],
+      },
+    ],
     areaServed: {
       "@type": "Country",
       name: "India",
@@ -108,9 +129,32 @@ export function buildWebsiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${SITE_SEO.siteUrl}/#website`,
     name: SITE_SEO.brandName,
-    url: SITE_SEO.siteUrl,
+    url: `${SITE_SEO.siteUrl}/`,
     inLanguage: "en-IN",
+    publisher: {
+      "@id": `${SITE_SEO.siteUrl}/#organization`,
+    },
+  };
+}
+
+export function buildWebPageSchema({ title, description, path = "/" }) {
+  const pageUrl = toAbsoluteUrl(path);
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: title,
+    description,
+    inLanguage: "en-IN",
+    isPartOf: {
+      "@id": `${SITE_SEO.siteUrl}/#website`,
+    },
+    about: {
+      "@id": `${SITE_SEO.siteUrl}/#organization`,
+    },
   };
 }
 

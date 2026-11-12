@@ -20,6 +20,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import {
   PAGE_SEO,
   buildOrganizationSchema,
+  buildWebPageSchema,
   buildWebsiteSchema,
 } from "./config/seoConfig";
 
@@ -35,7 +36,11 @@ function ScrollToTop() {
 
 function HomePage() {
   const schemas = useMemo(
-    () => [buildOrganizationSchema(), buildWebsiteSchema()],
+    () => [
+      buildOrganizationSchema(),
+      buildWebsiteSchema(),
+      buildWebPageSchema(PAGE_SEO.home),
+    ],
     []
   );
 
