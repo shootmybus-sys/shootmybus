@@ -1,11 +1,14 @@
-import { SITE_CONTACT } from "./contactConfig";
+import { SITE_CONTACT } from "./contactConfig.js";
 
 export const SITE_SEO = {
   brandName: "Shootmybus",
-  tagline: "Bus Photography & Cinematic Bus Videography in India",
+  tagline: "India's Exclusive Bus Photography & Film Production Company",
   // Single configurable production origin (update when deploying final domain)
   siteUrl: "https://www.shootmybus.in",
-  defaultImage: "/Images/hero-bus.jpg",
+  defaultImage: "/Images/og-preview.jpg",
+  defaultImageWidth: "1200",
+  defaultImageHeight: "630",
+  defaultImageAlt: "Shootmybus Professional Bus Photography",
   logoUrl: "/Logo/shootmybus.jpeg",
   locale: "en_IN",
 };
@@ -18,11 +21,12 @@ export function toAbsoluteUrl(pathOrUrl = "/") {
 
 export const PAGE_SEO = {
   home: {
-    title: "Shootmybus | Bus Photography & Cinematic Bus Videography in India",
+    title: "Shootmybus | India's Exclusive Bus Photography & Film Production Company",
     description:
-      "Shootmybus specializes in luxury bus photography, cinematic bus reels, aerial drone shoots, and dynamic running shots for travel operators and coach brands across India.",
+      "Professional bus photography, cinematic bus reels, drone shoots and creative film production across India.",
     path: "/",
-    image: "/Images/hero-bus.jpg",
+    image: "/Images/og-preview.jpg",
+    imageAlt: "Shootmybus Professional Bus Photography",
     ogType: "website",
   },
   services: {
@@ -31,6 +35,7 @@ export const PAGE_SEO = {
       "Explore Shootmybus production services across India: Professional Bus Reels, Cinematic Drone Shoots, Highway Running Shots, and Commercial Bus Photography.",
     path: "/services",
     image: "/Images/20.PNG",
+    imageAlt: "Shootmybus Bus Photography and Film Production Services",
     ogType: "website",
   },
   portfolio: {
@@ -39,6 +44,7 @@ export const PAGE_SEO = {
       "View Shootmybus luxury coach exteriors, Volvo sleeper interiors, aerial drone perspectives, and highway running photography captured for Indian fleet brands.",
     path: "/portfolio",
     image: "/Images/IMG_2832.JPG.jpeg",
+    imageAlt: "Shootmybus Luxury Bus Photography Portfolio",
     ogType: "website",
   },
   about: {
@@ -47,6 +53,7 @@ export const PAGE_SEO = {
       "Learn how Shootmybus plans, directs, and produces cinematic bus photography and commercial coach films tailored for Indian travel operators and bodybuilders.",
     path: "/about",
     image: "/Images/17.PNG",
+    imageAlt: "About Shootmybus Bus Visual Production Studio",
     ogType: "website",
   },
   blog: {
@@ -55,6 +62,7 @@ export const PAGE_SEO = {
       "Read practical guides on luxury bus photography, cinematic Instagram reels, aerial drone shoots, highway running shots, and fleet branding in India.",
     path: "/blog",
     image: "/Images/IMG_2833.JPG.jpeg",
+    imageAlt: "Shootmybus Bus Photography and Production Blog",
     ogType: "website",
   },
   contact: {
@@ -63,13 +71,15 @@ export const PAGE_SEO = {
       "Get in touch with Shootmybus to book luxury bus reels, drone videography, running shots, or commercial fleet photography anywhere in India.",
     path: "/contact",
     image: "/Images/IMG_2835.JPG.jpeg",
+    imageAlt: "Book a Bus Photoshoot with Shootmybus",
     ogType: "website",
   },
   notFound: {
     title: "Page Not Found | Shootmybus",
     description: "The requested page could not be found on Shootmybus.",
     path: "/404",
-    image: "/Images/hero-bus.jpg",
+    image: "/Images/og-preview.jpg",
+    imageAlt: "Shootmybus Professional Bus Photography",
     ogType: "website",
     robots: "noindex, nofollow",
   },

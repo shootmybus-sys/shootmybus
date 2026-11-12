@@ -32,6 +32,7 @@ export default function SeoHead({
   description,
   path = "/",
   image = SITE_SEO.defaultImage,
+  imageAlt = SITE_SEO.defaultImageAlt,
   ogType = "website",
   robots = "index, follow",
   schemas = [],
@@ -39,6 +40,7 @@ export default function SeoHead({
   const fullTitle = title || `${SITE_SEO.brandName} | ${SITE_SEO.tagline}`;
   const canonicalUrl = toAbsoluteUrl(path);
   const absoluteImage = toAbsoluteUrl(image);
+  const resolvedImageAlt = imageAlt || SITE_SEO.defaultImageAlt;
   const serializedSchemas = JSON.stringify(schemas.filter(Boolean));
 
   useEffect(() => {
@@ -56,12 +58,16 @@ export default function SeoHead({
     upsertMetaTag("property", "og:description", description);
     upsertMetaTag("property", "og:url", canonicalUrl);
     upsertMetaTag("property", "og:image", absoluteImage);
+    upsertMetaTag("property", "og:image:width", SITE_SEO.defaultImageWidth);
+    upsertMetaTag("property", "og:image:height", SITE_SEO.defaultImageHeight);
+    upsertMetaTag("property", "og:image:alt", resolvedImageAlt);
 
     // Twitter Card
     upsertMetaTag("name", "twitter:card", "summary_large_image");
     upsertMetaTag("name", "twitter:title", fullTitle);
     upsertMetaTag("name", "twitter:description", description);
     upsertMetaTag("name", "twitter:image", absoluteImage);
+    upsertMetaTag("name", "twitter:image:alt", resolvedImageAlt);
 
     // Remove previous route JSON-LD tags and inject current ones
     document.head.querySelectorAll('script[data-smb-schema="true"]').forEach((node) => node.remove());
@@ -79,7 +85,7 @@ export default function SeoHead({
     return () => {
       createdNodes.forEach((node) => node.remove());
     };
-  }, [fullTitle, description, robots, canonicalUrl, ogType, absoluteImage, serializedSchemas]);
+  }, [fullTitle, description, robots, canonicalUrl, ogType, absoluteImage, resolvedImageAlt, serializedSchemas]);
 
   return null;
 }
