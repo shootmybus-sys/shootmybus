@@ -5,7 +5,7 @@ import "./Hero.css";
 // Switch `type` to "video" and set `videoSrc` when replacing the background image with video.
 const HERO_MEDIA = {
   type: "video",
-  imageSrc: "/Images/hero-bus.jpg",
+  imageSrc: "/Images/hero-bus.webp",
   imageAlt: "Luxury tour coach bus driving on a scenic misty highway at twilight",
   videoSrc: "/Images/hero.mp4",
 };

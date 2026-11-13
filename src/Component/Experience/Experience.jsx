@@ -5,20 +5,20 @@ import "./Experience.css";
 const EXPERIENCE_MEDIA = {
   main: {
     id: "main",
-    imageSrc: "/Images/22.png",
+    imageSrc: "/Images/22.webp",
     imageAlt: "Baba Holidays Zingbus Maxx twin black Volvo sleeper coaches delivery showcase",
     videoSrc: "",
   },
   supporting: [
     {
       id: "cabin",
-      imageSrc: "/Images/21.png",
+      imageSrc: "/Images/21.webp",
       imageAlt: "Shrinath Solitaire Volvo luxury coach exterior and driver cockpit showcase",
       videoSrc: "",
     },
     {
       id: "highway",
-      imageSrc: "/Images/23.png",
+      imageSrc: "/Images/23.webp",
       imageAlt: "Zingbus Maxx Baba Holidays twin black Volvo coaches front lineup",
       videoSrc: "",
     },

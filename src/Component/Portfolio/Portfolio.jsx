@@ -6,57 +6,57 @@ import "./Portfolio.css";
 const PORTFOLIO_ROW_ONE = [
   {
     id: "fleet-tigra-front",
-    src: "/Images/IMG_2832.JPG.jpeg",
+    src: "/Images/IMG_2832.webp",
     alt: "Front-angle luxury MG Tigra fleet photography for Shree Ramkrupa Travels",
   },
   {
     id: "fleet-tata-bs6",
-    src: "/Images/IMG_2831.JPG.jpeg",
+    src: "/Images/IMG_2831.webp",
     alt: "MG Tigra Tata BS6 13.5m luxury coaches parked in crisp side formation",
   },
   {
     id: "tegra-sleeper-cabin",
-    src: "/Images/4.PNG",
+    src: "/Images/4.webp",
     alt: "Tegra Express luxury Volvo sleeper cabin interior photography",
   },
   {
     id: "tegra-usb-infotainment",
-    src: "/Images/10.PNG",
+    src: "/Images/10.webp",
     alt: "Onboard infotainment and USB charging console inside Tegra Express Volvo sleeper",
   },
   {
     id: "fleet-tigra-angle",
-    src: "/Images/IMG_2833.JPG.jpeg",
+    src: "/Images/IMG_2833.webp",
     alt: "Dual luxury MG Tigra coach exterior shoot in daylight",
   },
   {
     id: "tegra-ambient-aisle",
-    src: "/Images/17.PNG",
+    src: "/Images/17.webp",
     alt: "Ambient warm cabin aisle lighting inside a luxury Volvo sleeper coach",
   },
   {
     id: "ramkrupa-ac-airflow",
-    src: "/Images/IMG_2841.JPG.jpeg",
+    src: "/Images/IMG_2841.webp",
     alt: "Personal AC vent and ambient ceiling strip lighting detail inside sleeper berth",
   },
   {
     id: "ramkrupa-gangway",
-    src: "/Images/IMG_2847.JPG.jpeg",
+    src: "/Images/IMG_2847.webp",
     alt: "Luxury coach spacious gangway and quilted sleeper berths",
   },
   {
     id: "shrinath-solitaire-volvo",
-    src: "/Images/21.png",
+    src: "/Images/21.webp",
     alt: "Shrinath Solitaire Volvo luxury coach exterior and driver cockpit showcase",
   },
   {
     id: "zingbus-maxx-baba-delivery",
-    src: "/Images/22.png",
+    src: "/Images/22.webp",
     alt: "Baba Holidays Zingbus Maxx twin black Volvo sleeper coaches showcase",
   },
   {
     id: "zingbus-maxx-twin-front",
-    src: "/Images/23.png",
+    src: "/Images/23.webp",
     alt: "Zingbus Maxx Baba Holidays twin black Volvo coaches front lineup",
   },
 ];
@@ -64,57 +64,57 @@ const PORTFOLIO_ROW_ONE = [
 const PORTFOLIO_ROW_TWO = [
   {
     id: "tegra-twin-9600s",
-    src: "/Images/20.PNG",
+    src: "/Images/20.webp",
     alt: "Aerial exterior showcase of twin Tegra Express Volvo 9600s coaches",
   },
   {
     id: "tegra-cctv-security",
-    src: "/Images/11.PNG",
+    src: "/Images/11.webp",
     alt: "360-degree CCTV cabin monitoring system inside Tegra Express luxury coach",
   },
   {
     id: "ramkrupa-side-profile",
-    src: "/Images/IMG_2834.JPG.jpeg",
+    src: "/Images/IMG_2834.webp",
     alt: "Full side-profile luxury coach showcase for Shree Ramkrupa Travels",
   },
   {
     id: "tegra-soft-pillows",
-    src: "/Images/16.PNG",
+    src: "/Images/16.webp",
     alt: "Soft embroidered pillows and plush sleeper berth inside Tegra Express",
   },
   {
     id: "ramkrupa-berth-detail",
-    src: "/Images/IMG_2840.JPG.jpeg",
+    src: "/Images/IMG_2840.webp",
     alt: "Quilted sleeper seat, USB Type-C ports, and curtain detail shot",
   },
   {
     id: "tegra-bottle-holder",
-    src: "/Images/19.PNG",
+    src: "/Images/19.webp",
     alt: "Dedicated cabin bottle holder and privacy curtain finish detail",
   },
   {
     id: "tegra-backrest-pillow",
-    src: "/Images/5.PNG",
+    src: "/Images/5.webp",
     alt: "Luxury Volvo sleeper backrest and branded leather pillows",
   },
   {
     id: "ramkrupa-dual-lineup",
-    src: "/Images/IMG_2835.JPG.jpeg",
+    src: "/Images/IMG_2835.webp",
     alt: "Three-quarter twin luxury bus fleet lineup photography",
   },
   {
     id: "zingbus-maxx-wheel-detail",
-    src: "/Images/24.png",
+    src: "/Images/24.webp",
     alt: "Zingbus Maxx Volvo luxury coach wheel arch and Michelin tyre detail",
   },
   {
     id: "zingbus-maxx-depot-fleet",
-    src: "/Images/25.png",
+    src: "/Images/25.webp",
     alt: "Baba Holidays Zingbus Maxx black Volvo sleeper fleet parked in formation",
   },
   {
     id: "zingbus-maxx-owner-portrait",
-    src: "/Images/26.png",
+    src: "/Images/26.webp",
     alt: "Baba Holidays Zingbus Maxx twin black Volvo coaches delivery portrait",
   },
 ];

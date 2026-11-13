@@ -72,7 +72,7 @@ function WhyChooseUs() {
         <div className={`smb-why-visual-wrap${isInView ? " is-inview" : ""}`}>
           <div className="smb-why-visual-frame">
             <img
-              src="/Images/17.PNG"
+              src="/Images/17.webp"
               alt="Warm ambient aisle lighting inside a luxury Volvo sleeper coach"
               width="1600"
               height="900"

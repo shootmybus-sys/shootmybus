@@ -23,7 +23,7 @@ import "./ServicesPage.css";
 const SERVICES_GALLERY = [
   {
     id: "gallery-tigra-front",
-    src: "/Images/IMG_2832.JPG.jpeg",
+    src: "/Images/IMG_2832.webp",
     width: 1600,
     height: 900,
     alt: "Twin MG Tigra luxury buses front-angle exterior showcase",
@@ -31,7 +31,7 @@ const SERVICES_GALLERY = [
   },
   {
     id: "gallery-volvo-aerial",
-    src: "/Images/20.PNG",
+    src: "/Images/20.webp",
     width: 1600,
     height: 900,
     alt: "Elevated aerial view of twin Tegra Express Volvo 9600s coaches",
@@ -39,7 +39,7 @@ const SERVICES_GALLERY = [
   },
   {
     id: "gallery-sleeper-cabin",
-    src: "/Images/4.PNG",
+    src: "/Images/4.webp",
     width: 1600,
     height: 900,
     alt: "Warm illuminated Tegra Express Volvo sleeper berth interior",
@@ -47,7 +47,7 @@ const SERVICES_GALLERY = [
   },
   {
     id: "gallery-tata-profile",
-    src: "/Images/IMG_2834.JPG.jpeg",
+    src: "/Images/IMG_2834.webp",
     width: 1600,
     height: 900,
     alt: "Tata BS6 13.5m luxury coach full side profile photography",
@@ -66,7 +66,7 @@ const SERVICES_DETAIL = [
       "Vertical 9:16 social edits plus clean widescreen master cuts",
       "Rich sound design capturing real cabin and coach ambience",
     ],
-    imageSrc: "/Images/17.PNG",
+    imageSrc: "/Images/17.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -83,7 +83,7 @@ const SERVICES_DETAIL = [
       "Synchronized multi-bus fleet formation framing from above",
       "Colour-matched aerial footage integrated with ground cameras",
     ],
-    imageSrc: "/Images/20.PNG",
+    imageSrc: "/Images/20.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -100,7 +100,7 @@ const SERVICES_DETAIL = [
       "Disciplined pace-car coordination on early-morning expressways",
       "Built for website hero banners, print brochures, and route launches",
     ],
-    imageSrc: "/Images/IMG_2831.JPG.jpeg",
+    imageSrc: "/Images/IMG_2831.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -117,7 +117,7 @@ const SERVICES_DETAIL = [
       "Balanced twilight cabin lighting for sleeper berths and seating",
       "Print-ready and web-optimized deliverables for portals and WhatsApp",
     ],
-    imageSrc: "/Images/IMG_2832.JPG.jpeg",
+    imageSrc: "/Images/IMG_2832.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:

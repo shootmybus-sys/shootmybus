@@ -19,7 +19,7 @@ export const BLOG_POSTS = [
     title: "Bus Photography in India: The Complete Commercial Shoot Guide for Fleet Owners",
     excerpt:
       "Everything Indian intercity operators, charter fleets, and coach bodybuilders need to plan a clean, high-impact bus photoshoot that showcases comfort and build quality.",
-    imageSrc: "/Images/hero-bus.jpg",
+    imageSrc: "/Images/hero-bus.webp",
     imageWidth: 1376,
     imageHeight: 768,
     imageAlt:
@@ -109,7 +109,7 @@ export const BLOG_POSTS = [
     title: "How to Shoot Cinematic Bus Reels for Instagram & Travel Brand Growth",
     excerpt:
       "Short-form vertical video has become the fastest way for Indian coach operators to showcase new deliveries, sleeper comfort, and highway presence. Here is how pro reels are crafted.",
-    imageSrc: "/Images/17.PNG",
+    imageSrc: "/Images/17.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -182,7 +182,7 @@ export const BLOG_POSTS = [
     title: "Drone Videography for Luxury Buses in India: Scenic Routes & Framing Tips",
     excerpt:
       "From coastal bridges and Western Ghats curves to six-lane expressways, aerial drone framing gives luxury coaches dramatic scale that ground cameras cannot match.",
-    imageSrc: "/Images/IMG_2835.JPG.jpeg",
+    imageSrc: "/Images/IMG_2835.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -248,7 +248,7 @@ export const BLOG_POSTS = [
     title: "Running Shots for Luxury Coaches: Mastering Highway Motion Photography",
     excerpt:
       "Nothing communicates road presence quite like a sharp rolling frame of a luxury coach gliding down an expressway with silky motion blur on the tarmac and wheels.",
-    imageSrc: "/Images/IMG_2832.JPG.jpeg",
+    imageSrc: "/Images/IMG_2832.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -313,7 +313,7 @@ export const BLOG_POSTS = [
     title: "Interior Bus Photography: Highlighting Sleeper Berths, Lighting & Comfort",
     excerpt:
       "Intercity passengers care deeply about cabin hygiene, berth width, reading lights, and ambience. Learn how interior photography sells overnight comfort honestly.",
-    imageSrc: "/Images/4.PNG",
+    imageSrc: "/Images/4.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -378,7 +378,7 @@ export const BLOG_POSTS = [
     title: "Fleet Launch Photography Checklist for Indian Bus Operators & Bodybuilders",
     excerpt:
       "Launching new coaches on a tight inaugural schedule? Use this practical preparation checklist so your bus shoot runs smoothly without wasting valuable daylight.",
-    imageSrc: "/Images/IMG_2833.JPG.jpeg",
+    imageSrc: "/Images/IMG_2833.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -440,7 +440,7 @@ export const BLOG_POSTS = [
     title: "Why Cinematic Bus Videos Help Intercity Operators Stand Out Online",
     excerpt:
       "Passengers compare dozens of similar-looking listings on booking portals. Authentic, well-produced coach films turn anonymous seat inventory into a recognizable travel brand.",
-    imageSrc: "/Images/IMG_2831.JPG.jpeg",
+    imageSrc: "/Images/IMG_2831.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -508,7 +508,7 @@ export const BLOG_POSTS = [
     title: "Best Locations & Golden Hour Lighting for a Bus Photoshoot in India",
     excerpt:
       "A coach's painted flank acts like a 13-metre mirror. Choosing the right road orientation, terrain backdrop, and twilight window makes every frame look effortless.",
-    imageSrc: "/Images/IMG_2834.JPG.jpeg",
+    imageSrc: "/Images/IMG_2834.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:
@@ -569,7 +569,7 @@ export const BLOG_POSTS = [
     title: "Luxury Coach Delivery Shoots: Capturing Volvo, Scania & BharatBenz Fleets",
     excerpt:
       "Flagship multi-axle coaches and custom luxury bodies deserve documentation that respects engineering precision, proportions, and multi-unit delivery pride.",
-    imageSrc: "/Images/20.PNG",
+    imageSrc: "/Images/20.webp",
     imageWidth: 1600,
     imageHeight: 900,
     imageAlt:

@@ -34,7 +34,7 @@ export const PAGE_SEO = {
     description:
       "Explore Shootmybus production services across India: Professional Bus Reels, Cinematic Drone Shoots, Highway Running Shots, and Commercial Bus Photography.",
     path: "/services",
-    image: "/Images/20.PNG",
+    image: "/Images/20.webp",
     imageAlt: "Shootmybus Bus Photography and Film Production Services",
     ogType: "website",
   },
@@ -43,7 +43,7 @@ export const PAGE_SEO = {
     description:
       "View Shootmybus luxury coach exteriors, Volvo sleeper interiors, aerial drone perspectives, and highway running photography captured for Indian fleet brands.",
     path: "/portfolio",
-    image: "/Images/IMG_2832.JPG.jpeg",
+    image: "/Images/IMG_2832.webp",
     imageAlt: "Shootmybus Luxury Bus Photography Portfolio",
     ogType: "website",
   },
@@ -52,7 +52,7 @@ export const PAGE_SEO = {
     description:
       "Learn how Shootmybus plans, directs, and produces cinematic bus photography and commercial coach films tailored for Indian travel operators and bodybuilders.",
     path: "/about",
-    image: "/Images/17.PNG",
+    image: "/Images/17.webp",
     imageAlt: "About Shootmybus Bus Visual Production Studio",
     ogType: "website",
   },
@@ -61,7 +61,7 @@ export const PAGE_SEO = {
     description:
       "Read practical guides on luxury bus photography, cinematic Instagram reels, aerial drone shoots, highway running shots, and fleet branding in India.",
     path: "/blog",
-    image: "/Images/IMG_2833.JPG.jpeg",
+    image: "/Images/IMG_2833.webp",
     imageAlt: "Shootmybus Bus Photography and Production Blog",
     ogType: "website",
   },
@@ -70,7 +70,7 @@ export const PAGE_SEO = {
     description:
       "Get in touch with Shootmybus to book luxury bus reels, drone videography, running shots, or commercial fleet photography anywhere in India.",
     path: "/contact",
-    image: "/Images/IMG_2835.JPG.jpeg",
+    image: "/Images/IMG_2835.webp",
     imageAlt: "Book a Bus Photoshoot with Shootmybus",
     ogType: "website",
   },
