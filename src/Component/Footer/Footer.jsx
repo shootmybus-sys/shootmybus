@@ -16,6 +16,13 @@ const QUICK_LINKS = [
   { id: "contact", label: "Contact", to: "/contact" },
 ];
 
+const LEGAL_LINKS = [
+  { id: "privacy", label: "Privacy Policy", to: "/privacy-policy" },
+  { id: "terms", label: "Terms & Conditions", to: "/terms-and-conditions" },
+  { id: "cancellation", label: "Cancellation & Rescheduling", to: "/cancellation-policy" },
+  { id: "copyright", label: "Copyright & Media Usage", to: "/copyright-policy" },
+];
+
 function Footer() {
   const contactItems = [
     {
@@ -151,6 +158,15 @@ function Footer() {
           </div>
 
           <div className="smb-footer-bottom">
+            <ul className="smb-footer-legal-links" aria-label="Legal policies">
+              {LEGAL_LINKS.map((link) => (
+                <li key={link.id}>
+                  <Link to={link.to} className="smb-footer-legal-link">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
             <p className="smb-footer-copyright">
               &copy; {CURRENT_YEAR} Shootmybus. All rights reserved.
             </p>

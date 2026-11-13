@@ -68,6 +68,10 @@ function generateRouteSocialHtmlPlugin() {
         PAGE_SEO.about,
         PAGE_SEO.blog,
         PAGE_SEO.contact,
+        PAGE_SEO.privacyPolicy,
+        PAGE_SEO.termsConditions,
+        PAGE_SEO.cancellationPolicy,
+        PAGE_SEO.copyrightPolicy,
         ...BLOG_POSTS.map((post) => ({
           title: post.seoTitle || post.title,
           description: post.metaDescription,

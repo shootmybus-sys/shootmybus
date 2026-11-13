@@ -74,6 +74,42 @@ export const PAGE_SEO = {
     imageAlt: "Book a Bus Photoshoot with Shootmybus",
     ogType: "website",
   },
+  privacyPolicy: {
+    title: "Privacy Policy | Shootmybus",
+    description:
+      "Shootmybus Privacy Policy explaining how client inquiry information and WhatsApp shoot booking details are handled with complete confidentiality.",
+    path: "/privacy-policy",
+    image: "/Images/og-preview.jpg",
+    imageAlt: "Shootmybus Privacy Policy",
+    ogType: "website",
+  },
+  termsConditions: {
+    title: "Terms & Conditions | Shootmybus",
+    description:
+      "Shootmybus Terms and Conditions governing commercial bus photography, cinematic videography, on-location shoots, and WhatsApp bookings in India.",
+    path: "/terms-and-conditions",
+    image: "/Images/og-preview.jpg",
+    imageAlt: "Shootmybus Terms and Conditions",
+    ogType: "website",
+  },
+  cancellationPolicy: {
+    title: "Cancellation & Rescheduling Policy | Shootmybus",
+    description:
+      "Shootmybus Cancellation and Rescheduling Policy detailing shoot postponements, weather delays, and booking agreement procedures.",
+    path: "/cancellation-policy",
+    image: "/Images/og-preview.jpg",
+    imageAlt: "Shootmybus Cancellation & Rescheduling Policy",
+    ogType: "website",
+  },
+  copyrightPolicy: {
+    title: "Copyright & Media Usage Policy | Shootmybus",
+    description:
+      "Shootmybus Copyright and Media Usage Policy covering intellectual property ownership, client commercial licenses, and portfolio display terms.",
+    path: "/copyright-policy",
+    image: "/Images/og-preview.jpg",
+    imageAlt: "Shootmybus Copyright & Media Usage Policy",
+    ogType: "website",
+  },
   notFound: {
     title: "Page Not Found | Shootmybus",
     description: "The requested page could not be found on Shootmybus.",

@@ -5,28 +5,28 @@ import "./Services.css";
 // Set `videoSrc` (e.g. "/Videos/service-bus-reels.mp4") on any item to replace its image with an autoplaying background video.
 const SERVICES = [
   {
-    // number: "01",
+    id: "service-bus-reels",
     title: "Professional Bus Reels",
     imageSrc: "/Images/IMG_2832.webp",
     imageAlt: "Luxury twin MG Tigra coaches staged for cinematic commercial reel shoot",
     videoSrc: "/Images/new.mp4",
   },
   {
-    // number: "02",
+    id: "service-drone-shoots",
     title: "Cinematic Drone Shoots",
     imageSrc: "/Images/1.webp",
     imageAlt: "Aerial drone photography of a luxury bus on a winding coastal road",
     videoSrc: "",
   },
   {
-    // number: "03",
+    id: "service-running-shots",
     title: "Running Shots",
     imageSrc: "/Images/IMG_2831.webp",
     imageAlt: "Dynamic rolling tracking shot of a moving luxury bus on a highway",
     videoSrc: "",
   },
   {
-    // number: "04",
+    id: "service-bus-photography",
     title: "Professional Bus Photography",
     imageSrc: "/Images/IMG_2832.webp",
     imageAlt: "Close-up cinematic automotive photography of a luxury bus front",
@@ -68,8 +68,8 @@ function Services() {
     setActiveIndex((prev) => (prev === index ? null : index));
   };
 
-  const handleVideoError = (serviceNumber) => {
-    setFailedVideos((prev) => ({ ...prev, [serviceNumber]: true }));
+  const handleVideoError = (serviceId) => {
+    setFailedVideos((prev) => ({ ...prev, [serviceId]: true }));
   };
 
   return (
@@ -88,11 +88,11 @@ function Services() {
           {SERVICES.map((service, index) => {
             const isActive = activeIndex === index;
             const showVideo =
-              Boolean(service.videoSrc) && !failedVideos[service.number];
+              Boolean(service.videoSrc) && !failedVideos[service.id];
 
             return (
               <article
-                key={service.number}
+                key={service.id}
                 tabIndex={0}
                 className={`smb-accordion-item${isActive ? " is-active" : ""}`}
                 onClick={() => handleCardToggle(index)}
@@ -114,7 +114,7 @@ function Services() {
                     playsInline
                     preload="metadata"
                     aria-hidden="true"
-                    onError={() => handleVideoError(service.number)}
+                    onError={() => handleVideoError(service.id)}
                   />
                 ) : (
                   <img
@@ -131,9 +131,11 @@ function Services() {
 
                 <div className="smb-accordion-content">
                   <div className="smb-accordion-top">
-                    <span className="smb-accordion-number">
-                      {service.number}
-                    </span>
+                    {service.number && (
+                      <span className="smb-accordion-number">
+                        {service.number}
+                      </span>
+                    )}
                     <span className="smb-accordion-arrow" aria-hidden="true">
                       <ArrowUpRight className="smb-accordion-arrow-icon" />
                     </span>

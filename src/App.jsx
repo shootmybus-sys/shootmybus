@@ -18,6 +18,12 @@ import BlogDetailPage from "./pages/Blog/BlogDetailPage";
 import { AboutPage, ContactPage, PortfolioPage } from "./pages/SubPages";
 import NotFoundPage from "./pages/NotFoundPage";
 import {
+  CancellationPolicyPage,
+  CopyrightPolicyPage,
+  PrivacyPolicyPage,
+  TermsConditionsPage,
+} from "./pages/Legal";
+import {
   PAGE_SEO,
   buildOrganizationSchema,
   buildWebPageSchema,
@@ -109,6 +115,10 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms-and-conditions" element={<TermsConditionsPage />} />
+        <Route path="/cancellation-policy" element={<CancellationPolicyPage />} />
+        <Route path="/copyright-policy" element={<CopyrightPolicyPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
