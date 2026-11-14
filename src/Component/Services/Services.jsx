@@ -7,7 +7,7 @@ const SERVICES = [
   {
     id: "service-bus-reels",
     title: "Professional Bus Reels",
-    imageSrc: "/Images/IMG_2832.webp",
+    imageSrc: "/Images/Add a heading-65.png",
     imageAlt: "Luxury twin MG Tigra coaches staged for cinematic commercial reel shoot",
     videoSrc: "/Images/new.mp4",
   },
