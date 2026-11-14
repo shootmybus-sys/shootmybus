@@ -6,7 +6,7 @@ import "./Portfolio.css";
 const PORTFOLIO_ROW_ONE = [
   {
     id: "fleet-tigra-front",
-    src: "/Images/Add a heading-65.png",
+    src: "/Images/IMG_2832.webp",
     alt: "Front-angle luxury MG Tigra fleet photography for Shree Ramkrupa Travels",
   },
   {
